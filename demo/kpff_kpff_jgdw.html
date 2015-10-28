@@ -1,0 +1,141 @@
+<div class="container-fluid t-o">
+<div class="container-fluid" id="p-100">
+        <table class="table table-bordered" style="min-width: 1920px; ">
+            <thead>
+            <tr>
+                <th rowspan="2" width="30px"> 序号</th>
+                <th rowspan="2" colspan="3">指标名称</th>
+                <th rowspan="2" style="width: 30%">工作进度</th>
+                <th colspan="4" >考评赋分（季度）</th>
+            </tr>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>贯彻落实上级关于行政监察方面的政策的政策法规条例的实施（3分）</td>
+                <td>贯彻落实上级关于行政监察方面的政策的政策法规条例的实施</td>
+                <td>贯彻落实上级关于行政监察方面的政策的政策法规条例的实施</td>
+                <td class="pos-relative">
+                    贯彻落实上级关于行政监察方面的政策的政策法规条例的实施
+                    <span ><a href="#" onclick="kpff_kpff_gzjdck()">【查看】</a></span>
+                </td>
+
+                <td><input type="text" class=""/></td>
+                <td><input type="text" class=""/></td>
+                <td><input type="text" class=""/></td>
+                <td><input type="text" class=""/></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>贯彻落实上级关于行政监察方面的政策的政策法规条例的实施（3分）</td>
+                <td>贯彻落实上级关于行政监察方面的政策的政策法规条例的实施</td>
+                <td>贯彻落实上级关于行政监察方面的政策的政策法规条例的实施</td>
+                <td class="pos-relative">
+                    贯彻落实上级关于行政监察方面的政策的政策法规条例的实施
+                    <span ><a href="#" onclick="kpff_kpff_gzjdck()">【查看】</a></span>
+                </td>
+
+                <td><input type="text" class=""/></td>
+                <td><input type="text" class=""/></td>
+                <td><input type="text" class=""/></td>
+                <td><input type="text" class=""/></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>贯彻落实上级关于行政监察方面的政策的政策法规条例的实施（3分）</td>
+                <td>贯彻落实上级关于行政监察方面的政策的政策法规条例的实施</td>
+                <td>贯彻落实上级关于行政监察方面的政策的政策法规条例的实施</td>
+                <td class="pos-relative">
+                    贯彻落实上级关于行政监察方面的政策的政策法规条例的实施
+                    <span ><a href="#" onclick="kpff_kpff_gzjdck()">【查看】</a></span>
+                </td>
+
+                <td><input type="text" class=""/></td>
+                <td><input type="text" class=""/></td>
+                <td><input type="text" class=""/></td>
+                <td><input type="text" class=""/></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>贯彻落实上级关于行政监察方面的政策的政策法规条例的实施（3分）</td>
+                <td>贯彻落实上级关于行政监察方面的政策的政策法规条例的实施</td>
+                <td>贯彻落实上级关于行政监察方面的政策的政策法规条例的实施</td>
+                <td class="pos-relative">
+                    贯彻落实上级关于行政监察方面的政策的政策法规条例的实施
+                    <span ><a href="#" onclick="kpff_kpff_gzjdck()">【查看】</a></span>
+                </td>
+
+                <td><input type="text" class=""/></td>
+                <td><input type="text" class=""/></td>
+                <td><input type="text" class=""/></td>
+                <td><input type="text" class=""/></td>
+            </tr>
+
+
+
+            </tbody>
+        </table>
+    </div>
+    </div>
+<div class="set-btn" data-spy="affix" data-offset-top="200">
+    <button class="btn save" type="button" >保存</button>
+    <a class="btn" href="javascript:;" onclick="$css.closeDialog();">取消</a>
+</div>
+<style>
+   #p-100 span{position: absolute;right: 3px;bottom: 3px}
+   #p-100 input{width: 50px}
+    #p-100{overflow: auto}
+</style>
+<script>
+    console.log($(window).width());
+    $('#p-100').width($(window).width());
+    console.log($('#p-100').width());
+    function kpff_kpff_gzjdck(){
+        var a={
+            id:'kpff_kpff_gzjdck',
+            title:'工作进度查看',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpff_kpff_gzjdck.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+    function kpff_kpff_hcqkck(){
+        var a={
+            id:'kpff_kpff_hcqkck',
+            title:'核查情况查看',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpff_kpff_hcqkck.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+</script>

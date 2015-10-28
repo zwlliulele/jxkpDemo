@@ -1,0 +1,36 @@
+<form class="form-horizontal form-validate" id="form_column" name="form_column" method="post" action="updColumn.action" onsubmit="return validateCallback(this, updColumn)" novalidate="novalidate">
+    <div class="control-group" style="padding-right:60px;">
+        <label class="control-label">原密码</label>
+        <div class="controls">
+            <input type="password" placeholder="请输入原密码" class="input-large required" name="oldPas" id="oldPas" value="" maxlength="20" aria-required="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">新密码</label>
+        <div class="controls">
+            <input type="password" placeholder="请输入新密码" class="input-large required" name="newPas" id="newPas" value="" maxlength="20" aria-required="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">重复新密码</label>
+        <div class="controls">
+            <input type="password" placeholder="重复新密码" class="input-large required" name="repNewPas" id="repNewPas" value="" maxlength="20" aria-required="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            <span class="code"><img src="../rand.jpg" alt="验证码"  id="checkCodeImg" width="55px" style="border: 1px solid #000;"/></span>
+
+        </label>
+        <div class="controls">
+            <input type="password" placeholder="请填写左侧验证码" class="input-large required" name="code" id="code" value="" maxlength="20" aria-required="true">
+        </div>
+    </div>
+
+
+
+    <div class="set-btn" data-spy="affix" data-offset-top="200">
+        <button class="btn green" type="button" onclick="$(this).submit();">保存</button>
+        <a class="btn" href="javascript:;" onclick="$css.closeDialog()">取消</a>
+    </div>
+</form>

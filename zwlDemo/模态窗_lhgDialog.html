@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="ie7 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lt IE9]><!--><script src="../cssui/themes/metro/js/html5shiv.min.js"></script> <!--<![endif]-->
+    <!--[if lt IE9]><!--><script src="../cssui/themes/metro/js/respond.min.js"></script> <!--<![endif]-->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- Site CSS -->
+    <link href="../cssui/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <!--<link href="../cssui/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>-->
+    <!--tablesorter的修改后的主题-->
+    <!--<link rel="stylesheet" href="../cssui/plugins/tablesorter/css/theme.default.min.css"/>-->
+    <link rel="stylesheet" href="../cssui/plugins/tablesorter/css/theme.whiteicon.min.css"/>
+    <link rel="stylesheet" href="../cssui/plugins/tablesorter/css/theme.blackicon.min.css"/>
+    <link href="../cssui/layout/default.css" rel="stylesheet"/>
+    <link href="../cssui/layout/document.css" rel="stylesheet"/>
+    <link href="../cssui/themes/metro/icons.css" rel="stylesheet"/>
+    <link href="../cssui/themes/metro/style.css" rel="stylesheet"/>
+    <link href="../cssui/themes/metro/portal/portal.css" rel="stylesheet"/>
+    <link href="../cssui/themes/metro/myCSS.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../cssui/themes/metro/default.css"/>
+    <script type="text/javascript" src="../cssui/js/easyloader.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.history.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.blockui.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/lhgdialog/lhgdialog.min.js?skin=add"></script>
+    <script type="text/javascript" src="../cssui/plugins/ajaxupload/ajaxupload.3.6.min.js"></script>
+    <!--时间组件-->
+    <script type="text/javascript" src="../cssui/plugins/My97DatePicker/WdatePicker.js"></script>
+    <!--富文本组件-->
+    <script type="text/javascript" src="../cssui/plugins/kindeditor-4.1.2/kindeditor-min.js"></script>
+
+    <!--树形组件-->
+    <script type="text/javascript" src="../cssui/plugins/ztree/js/jquery.ztree.all-3.5.js"></script>
+    <!--table排序-->
+    <script type="text/javascript" src="../cssui/plugins/tablesorter/js/jquery.tablesorter.js"></script>
+    <!--<script type="text/javascript" src="../cssui/plugins/tablesorter/js/jquery.tablesorter.widgets.js"></script>-->
+    <script type="text/javascript" src="../cssui/js/cssui.js"></script>
+    <script type="text/javascript" src="../cssui/js/app.js"></script>
+    <script type="text/javascript" src="../cssui/js/myIndex.js"></script>
+</head>
+<body>
+
+<a href="#" class="btn btn-lg btn-primary" onclick="dialog1()">dialog——加载页面</a>
+<a href="#" class="btn btn-lg btn-primary" onclick="dialog2()">dialog——提醒消息</a>
+<a href="#" class="btn btn-lg btn-primary" onclick="dialog3()">dialog——显示loding动画</a>
+<a href="#" class="btn btn-lg btn-primary" onclick="alert1()">alert-警告消息</a>
+<a href="#" class="btn btn-lg btn-primary" onclick="tips1()">tips-短暂提醒1</a>
+<a href="#" class="btn btn-lg btn-primary" onclick="tips2()">tips-短暂提醒2</a>
+<a href="#" class="btn btn-lg btn-primary" onclick="confirm1()">confirm-选择确认1</a>
+<a href="#" class="btn btn-lg btn-primary" onclick="prompt()">prompt-提问</a>
+<script>
+    function dialog1(){
+        var a={
+            id:'id11',
+            title:'模态窗标题',
+            lock:true,//是否显示锁屏效果
+            time:"3",//定时关闭（单位秒）
+            background:"#000",
+            resize: false,//是否允许调节尺寸
+            max:false,//是否显示最大化按钮
+            min:false, //是否显示最小化x按钮
+            button:[{name: '登录', callback: function () {
+                alert("登录");
+                return false;//此处如果不返回false,则函数执行完毕后窗口自动关闭
+            }}, {name: '取消'}]
+
+
+        };
+        var api = $.dialog(a);//调用dialog方法生成模态窗
+        /* jQuery ajax */
+        $.ajax({//ajax加载页面
+            url:'dialog.html',
+            success:function(data){
+                api.content(data);//讲 ajax加载到的代码放入名为api的dialog内容中
+                $(api.DOM.content[0]).initUI();//为模态窗加载样式
+            },
+            cache:false
+        });
+
+    }
+    function dialog2(){
+        var dialog = $.dialog({title: '欢迎', content: '欢迎使用 lhgdialog 对话框组件！', ok: function(){
+            this.title('警告').content('请注意弹框将在两秒后将关闭！').lock().time(2);
+            return false;
+
+        }
+
+        });
+
+    }
+    function dialog3()
+    {
+        var dialog = $.dialog({title: '欢迎',lock:true, ok: true
+
+        });
+    }
+    function alert1()
+    {
+        $css.alert('提醒内容', function(){
+            alert("回调函数");
+            return false;//此处也可以返回false阻止弹窗关闭
+        });//参数 1：内容（必填）参数 2：窗口关闭时执行的回调函数（选填）
+    }
+    function tips1()
+    {
+        $css.tip("短暂提醒");
+        //第一种只显示一个绿色的对号
+    }
+    function tips2()
+    {
+        $.dialog.tips("短暂提醒", "1", "error.gif", function(){alert("回调函数")});
+        //第二种，其中icon是在cssui/plugins/lhgdialog/skins/icons的文件夹下的图片，文件名为全名带后缀
+    }
+    function confirm1()
+    {
+        $css.confirm("确定删除吗？", function(){alert("删除完成!")}, function(){alert("删除取消!")});
+        /*
+        * 参数 1：内容（必填）
+
+         参数 2：确定按钮回调函数（必填）
+
+         参数 3：取消按钮回调函数（选填）
+
+         * */
+    }
+    function prompt()
+    {
+        $.dialog.prompt("请输入一些东西吧~~", function(value){alert(value)}, "11");
+        /*
+        * 参数 1：内容（必填）
+
+         参数 2：确定按钮回调函数（必填）
+
+         参数 3：文本框默认值（选填）
+         function(value){}//这里的value是输入框的值
+
+         * */
+    }
+</script>
+</body>
+
+</html>

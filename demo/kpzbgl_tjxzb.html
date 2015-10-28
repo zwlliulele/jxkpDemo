@@ -1,0 +1,149 @@
+
+<form class="form-horizontal doc-form-validate" id="addgd_form" name="addgd_form" method="post" action="#" onsubmit="">
+    <div class="tablesld fbgg">
+        <table border="0" cellspacing="0" cellpadding="0" class="sun_t" style="width:100%;">
+            <tr>
+                <td align="center" style="vertical-align:middle; width:80px;" height="35px"><label class="bitian">*</label>指标名称</td>
+                <td colspan="5" style="vertical-align:middle;"><input type="text" class="input-small required" name="title" id="title" value="" maxlength="50" style="width:700px;"></td>
+            </tr>
+            <tr><td colspan="6">指标任务</td></tr>
+            <tr>
+                <td colspan="6" height="300" style="padding: 0">
+                    <textarea id="editor_id" name="kpzbtjcontent">
+                        &lt;strong&gt;HTML内容&lt;/strong&gt;
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="vertical-align:middle;" height="35px">序号</td>
+                <td colspan="2" style="vertical-align:middle;"> <input type="text" class="input-small required" name="title" id="fbr" value="" maxlength="50"></td>
+                <td align="center" style="vertical-align:middle;" height="35px">指标确认</td>
+                <td colspan="2" style="vertical-align:middle;"><input type="text" class="input-small required" name="title" id="" value="" maxlength="50"></td>
+
+
+            </tr>
+            <tr>
+                <td align="center" style="vertical-align:middle;" height="35px">评分依据</td>
+                <td colspan="2" style="vertical-align:middle;"> <select id="" name="typeId" class="input-large"><option value="1" selected="">是</option><option value="0">否</option></select></td>
+                <td align="center" style="vertical-align:middle;" height="35px">重点工作</td>
+                <td colspan="2" style="vertical-align:middle;"> <select id="" name="typeId" class="input-large"><option value="1" selected="">是</option><option value="0">否</option></select></td>
+            </tr>
+            <tr>
+                <td align="center" style="vertical-align:middle;" height="35px">启用状态</td>
+                <td colspan="2" style="vertical-align:middle;"> <select id="typeId" name="typeId" class="input-large"><option value="1" selected="">是</option><option value="0">否</option></select></td>
+                <td align="center" style="vertical-align:middle;" height="35px">显示状态</td>
+                <td colspan="2" style="vertical-align:middle;"> <select id="" name="typeId" class="input-large"><option value="1" selected="">是</option><option value="0">否</option></select></td>
+
+            </tr>
+            <tr>
+                <td align="center" style="vertical-align:middle;" height="35px">所属部门</td>
+                <td colspan="2" style="vertical-align:middle;"> <select id="" name="typeId" class="input-large"><option value="1" selected="">是</option><option value="0">否</option></select></td>
+                <td align="center" style="vertical-align:middle;" height="35px">指标来源</td>
+                <td colspan="2" style="vertical-align:middle;"> <select id="" name="typeId" class="input-large"><option value="1" selected="">是</option><option value="0">否</option></select></td>
+            </tr>
+        </table>
+    </div>
+    <div class="set-btn" data-spy="affix" data-offset-top="200">
+        <button class="btn save" type="button" onclick="gdSubmit(this, $('#addgd_form'));">保存</button>
+        <a class="btn" href="javascript:;" onclick="$css.closeDialog();">取消</a>
+    </div>
+</form>
+<script>
+
+
+    //富文本编辑器
+    var editor = KindEditor.create('textarea[name="kpzbtjcontent"]',{
+
+        resizeType : 2,
+
+        allowImageUpload : false ,
+
+        width:'100%',
+
+        height:'300',
+
+        items : [
+
+            'source','code','|','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic',
+
+            'underline', 'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright',
+
+            'insertorderedlist', 'insertunorderedlist', '|', 'emoticons', 'image', 'link', '|', 'preview',
+
+            'fullscreen']
+
+    });
+
+
+    /*function addGd(data){
+     if(data.result==0){
+     $css.closeTab();
+     $css.tip(data.msg);
+     $css.openTab({id:'DGDGL'});
+     $.cssTable.focus().submit();
+     }
+     else
+     $css.alert(data.msg);
+     }
+
+     var flag = "0";
+     var getgd_setting = {
+     data: {
+     simpleData: {
+     enable: true
+     }
+     },
+     callback: {
+     onClick: getgd_onClick
+     }
+     };
+     var getgd_zNodes = null;
+     var getgd_tree  = null;
+
+     function getgd_onClick(e, treeId, treeNode) {
+     if(!treeNode.isParent){
+     $("#catalogId",$.cssTab.focus()).attr("value", treeNode.id);
+     var parentNode = treeNode.getParentNode();
+     var name = "";
+     if(parentNode == null)
+     name = treeNode.name;
+     else
+     name = parentNode.name + " -> " + treeNode.name;
+     $("#catalogName",$.cssTab.focus()).attr("value", name);
+     getgd_hideMenu();
+     }
+     }
+
+     function getgd_showMenu() {
+     $("#getgd_menuContent",$.cssTab.focus()).slideDown("fast");
+     $("#addgd_form",$.cssTab.focus()).bind("mousedown", getgd_onBodyDown);
+     }
+
+     function getgd_hideMenu() {
+     $("#getgd_menuContent",$.cssTab.focus()).fadeOut("fast");
+     $("#addgd_form",$.cssTab.focus()).unbind("mousedown", getgd_onBodyDown);
+     }
+
+     function getgd_onBodyDown(event) {
+     if (!(event.target.id == "getgd_menuContent" || $(event.target).parents("#getgd_menuContent").length>0 || event.target.id == "catalogName")) {
+     getgd_hideMenu();
+     }
+     }
+
+     function getgd_getMenu(){
+     if(flag == "0"){
+     $css.post('getGdTree.action', '', function(data){
+     if(data.result==0){
+     getgd_zNodes = data.info;
+     using('tree',function(){
+     getgd_tree =  $.fn.zTree.init($("#getgd_tree",$.cssTab.focus()), getgd_setting, getgd_zNodes);
+     });
+     flag = "1";
+     }
+     else
+     $css.alert(data.msg);
+     },'json');
+     }
+     getgd_showMenu();
+     }*/
+</script>

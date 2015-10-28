@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <div class="table-header">
+        <div class="table-btn">
+            <a class="btn" title="添加数据" href="#" ><i class="icon-plus"></i>添加</a>
+            <a class="btn" title="添加数据" href="#"><i class="icon-remove"></i>删除</a>
+        </div>
+    </div>
+    <form class="form-horizontal form-validate" id="form_column" name="form_column" method="post" action="updColumn.action" onsubmit="return validateCallback(this, updColumn)" novalidate="novalidate">
+        <table class="table table-bordered" id="cpfagl_gonggxzbTable" style="min-width: 300px">
+            <thead>
+            <tr>
+                <th>个性指标名称</th>
+                <th>分值</th>
+               <th> 是否重点工作</th>
+                <th>是否填报</th>
+                <th>是否打分</th>
+                <th>监管单位</th>
+                <th>分管领导</th>
+                <th>联系领导</th>
+                <th>主要领导</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <input type="text"/>
+                </td>
+                <td>
+                    <input type="text"/>
+                </td>
+                <td>
+                    <select>
+                        <option value="1">是</option>
+                        <option value="0">否</option>
+                    </select>
+                </td>
+                <td>
+                    <select>
+                        <option value="1">是</option>
+                        <option value="0">否</option>
+                    </select>
+                </td>
+                <td>
+                    <select>
+                        <option value="1">是</option>
+                        <option value="0">否</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text"/>
+                </td>
+                <td>
+                    <input type="text"/>
+                </td>
+                <td>
+                    <input type="text"/>
+                </td>
+                <td>
+                    <input type="text"/>
+                </td>
+            </tr>
+
+
+
+            </tbody>
+        </table>
+
+        <div class="set-btn" data-spy="affix" data-offset-top="200">
+            <button class="btn green" type="button" onclick="$(this).submit();">保存</button>
+            <a class="btn" href="javascript:;" onclick="$css.closeDialog()">取消</a>
+        </div>
+
+
+    </form>
+
+</div>
+<style>
+    #cpfagl_gonggxzbTable select{width: 60px}
+</style>

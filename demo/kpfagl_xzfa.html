@@ -1,0 +1,89 @@
+<div class="container-fluid" id="kpfaglDiv">
+    <form class="form-horizontal form-validate" id="form_column" name="form_column" method="post" action="#">
+        <div class="control-group">
+            <label class="control-label"><span>*</span>方案名称</label>
+
+            <div class="controls">
+                <input type="text" name="name" minlength="4" maxlength="50" class="input-xlarge required" value="2015年度绩效考评方案">
+                <!--<button class="btn btn-primary pull-left" type="button">Search</button>-->
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"><span>*</span>考评年度</label>
+
+            <div class="controls">
+                <select id="kpfagl_xzfa_kpnd">
+
+                </select>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"><span>*</span>考评周期</label>
+
+            <div class="controls">
+                <select>
+                    <option value="1">年</option>
+                    <option value="0">半年</option>
+                    <option value="0">季度</option>
+                </select>
+                <!--<button class="btn btn-primary pull-left" type="button">Search</button>-->
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">启用状态</label>
+
+            <div class="controls">
+                <select>
+                    <option value="1">是</option>
+                    <option value="0">否</option>
+                </select>
+            </div>
+        </div>
+
+        <!--<div class="control-group">-->
+        <!--<label class="control-label">状态</label>-->
+        <!--<div class="controls">-->
+        <!--<label class="radio">-->
+        <!--<input type="radio" value="Option one" name="group" checked="checked">选项一</label>-->
+        <!--<label class="radio">-->
+        <!--<input type="radio" value="Option two" name="group">选项二</label>-->
+        <!--</div>-->
+        <!--</div>-->
+
+
+
+
+
+
+    </form>
+</div>
+<style>
+    #kpfaglDiv .control-label {
+        width: 100px
+    }
+
+    #kpfaglDiv .controls {
+        margin-left: 120px
+    }
+
+    #kpfaglDiv select {
+        width: 284px
+    }
+
+    .control-label span {
+        color: #ff0000
+    }
+</style>
+<script>
+  $(function(){
+      initYear();
+  });
+    function initYear(){
+        var newYear=new Date().getFullYear();
+        var yearStr='';
+        yearStr+=' <option value="'+newYear+'">'+newYear+'</option>';
+        yearStr+=' <option value="'+(newYear+1)+'">'+(newYear+1)+'</option>';
+        yearStr+=' <option value="'+(newYear+2)+'">'+(newYear+2)+'</option>';
+        $('#kpfagl_xzfa_kpnd').html(yearStr);
+    }
+</script>

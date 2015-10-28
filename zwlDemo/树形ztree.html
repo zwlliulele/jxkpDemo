@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="ie7 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lt IE9]><!--><script src="../cssui/themes/metro/js/html5shiv.min.js"></script> <!--<![endif]-->
+    <!--[if lt IE9]><!--><script src="../cssui/themes/metro/js/respond.min.js"></script> <!--<![endif]-->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- Site CSS -->
+    <link href="../cssui/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <!--<link href="../cssui/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>-->
+    <!--tablesorter的修改后的主题-->
+    <!--<link rel="stylesheet" href="../cssui/plugins/tablesorter/css/theme.default.min.css"/>-->
+    <link rel="stylesheet" href="../cssui/plugins/tablesorter/css/theme.whiteicon.min.css"/>
+    <link rel="stylesheet" href="../cssui/plugins/tablesorter/css/theme.blackicon.min.css"/>
+    <link href="../cssui/layout/default.css" rel="stylesheet"/>
+    <link href="../cssui/layout/document.css" rel="stylesheet"/>
+    <link href="../cssui/themes/metro/icons.css" rel="stylesheet"/>
+    <link href="../cssui/themes/metro/style.css" rel="stylesheet"/>
+    <link href="../cssui/themes/metro/portal/portal.css" rel="stylesheet"/>
+    <link href="../cssui/themes/metro/myCSS.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../cssui/themes/metro/default.css"/>
+    <script type="text/javascript" src="../cssui/js/easyloader.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.history.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.blockui.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/lhgdialog/lhgdialog.min.js?skin=add"></script>
+    <script type="text/javascript" src="../cssui/plugins/ajaxupload/ajaxupload.3.6.min.js"></script>
+    <!--时间组件-->
+    <script type="text/javascript" src="../cssui/plugins/My97DatePicker/WdatePicker.js"></script>
+    <!--富文本组件-->
+    <script type="text/javascript" src="../cssui/plugins/kindeditor-4.1.2/kindeditor-min.js"></script>
+
+    <!--树形组件-->
+    <script type="text/javascript" src="../cssui/plugins/ztree/js/jquery.ztree.all-3.5.js"></script>
+    <!--table排序-->
+    <script type="text/javascript" src="../cssui/plugins/tablesorter/js/jquery.tablesorter.js"></script>
+    <!--<script type="text/javascript" src="../cssui/plugins/tablesorter/js/jquery.tablesorter.widgets.js"></script>-->
+    <script type="text/javascript" src="../cssui/js/cssui.js"></script>
+    <script type="text/javascript" src="../cssui/js/app.js"></script>
+    <script type="text/javascript" src="../cssui/js/myIndex.js"></script>
+</head>
+<body>
+<div id="fzTree" class="ztree"></div>
+<a href="#" onclick="add110Node()">增加节点</a>
+<a href="#" onclick="removeNodexx()">删除选中节点</a>
+<!--此处必须加上class为ztree才可以显示正常-->
+<script>
+    $(function() {
+        //管理树形
+        var setting = {
+            view: {
+                selectedMulti: false//是否允许多选
+
+            },
+            callback: {
+                onClick:findNodes,//点击节点触发函数
+                beforeRemove: beforeRemove//删除前确认回调函数
+            }
+        };
+        var zNodes = [{
+            id:"001",
+            name: "市直部门",
+            menuList:'<a class="ztreeMenu" data-id="001" onclick="kpfagl_pkdxfz(this)">对象分组</a> <a href="#"  class="ztreeMenu" onclick="kpfagl_kpcl(this)">考评策略</a>',
+            open: false,
+            children: [{
+                id:"0001",
+                name: "党群工作组",
+                menuList:'<a href="#"  class="ztreeMenu" onclick="kpfagl_fzkpcl(this)">分组考评策略</a>',
+                children: [{
+                    id:"00001",
+                    name: "统战部",
+                    menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+                },{
+                    id:"00001",
+                    name: "信访督办局",
+                    menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+                },{
+                    id:"00001",
+                    name: "团委",
+                    menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+                }]
+            }]
+        },{
+            id:"001",
+            name: "市直部门",
+            menuList:'<a class="ztreeMenu" data-id="001" onclick="kpfagl_pkdxfz(this)">对象分组</a> <a href="#"  class="ztreeMenu" onclick="kpfagl_kpcl(this)">考评策略</a>',
+            open: false,
+            children: [{
+                id:"0001",
+                name: "党群工作组",
+                menuList:'<a href="#"  class="ztreeMenu" onclick="kpfagl_fzkpcl(this)">分组考评策略</a>',
+                children: [{
+                    id:"00001",
+                    name: "统战部",
+                    menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+                },{
+                    id:"00001",
+                    name: "信访督办局",
+                    menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+                },{
+                    id:"00001",
+                    name: "团委",
+                    menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+                }]
+            }]
+
+        }];
+        using('tree',function(){
+            $.fn.zTree.init($("#fzTree"), setting, zNodes);
+        });
+        //删除前操作
+        function beforeRemove(fzTree, treeNode){
+            var name = treeNode.name;
+            alert(name);
+            return false;//如果不设定返回false 默认会继续执行 onRemove 函数
+        }
+        function findNodes() {
+            var treeObj = $.fn.zTree.getZTreeObj("fzTree");
+            //获取全部节点数据
+            var nodes = treeObj.getSelectedNodes(true);//选取勾选的为true,未勾选为false
+            for (var i = 0, l = nodes.length; i < l; i++) {
+                console.log(nodes[i]);
+                var zdyId = nodes[i].id;//ztree的id
+                var level = nodes[i].level;//ztree的level第一级为0
+                var nodeName = nodes[i].name;//ztree的name
+                var childrenNode = nodes[i].children;//获取子级节点
+                var parentTId = nodes[i].getParentNode();//获取父级节点
+
+
+            }
+        }
+
+
+    });
+    function ZtreeNode(id, pId, name) {//定义ztree的节点类
+        this.id = id;
+        this.pId = pId;
+        this.name = name;
+    }
+    function add110Node(){//新增节点
+        var orgId = "33";//新节点id
+        var parentOrgId = "001";//父节点id
+        var name = "新节点";//新节点name,,,,还可以写很多~~
+        var childZNode = new ZtreeNode(orgId, parentOrgId, name); //构造子节点
+        var treeObj = $.fn.zTree.getZTreeObj("fzTree");//获取ztree对象
+        var parentZNode = treeObj.getNodeByParam("id", parentOrgId, null); //使用id获取父节点
+        treeObj.addNodes(parentZNode, childZNode, true);//增加新节点
+
+
+    }
+    function removeNodexx(){//删除节点
+        var treeObj = $.fn.zTree.getZTreeObj("fzTree");
+        var nodes = treeObj.getSelectedNodes();
+        for (var i=0, l=nodes.length; i < l; i++) {
+            treeObj.removeNode(nodes[i]);
+        }
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<form class="form-horizontal table-form no-margin w-1024" id="add_user_form" action="table_basic.html" onsubmit="return navTabSearch(this)" >
+
+    <textarea class="content-p-100 " style="height: 200px" name="content_jdhc" id="" >aaa</textarea>
+
+
+    <div class="set-btn" data-spy="affix" data-offset-top="200">
+        <select class="input-small required" name="docYear" id="docYear" style="width:90px;" aria-required="true">
+            <option value="-1">请选择</option>
+            <option value="0">未完成</option>
+            <option value="1">完成</option>
+
+        </select>
+        <button class="btn save" type="button" >保存</button>
+        <a class="btn" href="javascript:;" onclick="$css.closeDialog();">取消</a>
+    </div>
+</form>
+<script>
+    //富文本编辑器
+    var editor = KindEditor.create('textarea[name="content_jdhc"]',{
+
+        resizeType : 2,
+
+        allowImageUpload : true ,
+
+        width:'1022',
+
+        height:'300',
+
+        items : [
+
+            'source','code','|','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic',
+
+            'underline', 'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright',
+
+            'insertorderedlist', 'insertunorderedlist', '|', 'emoticons', 'image', 'link', '|', 'preview',
+
+            'fullscreen']
+
+    });
+</script>

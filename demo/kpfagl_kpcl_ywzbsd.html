@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <form class="form-horizontal form-validate" id="form_column" name="form_column" method="post" action="updColumn.action" onsubmit="return validateCallback(this, updColumn)" novalidate="novalidate">
+        <table class="table table-bordered" id="cpfagl_gonggxzbTable" style="min-width: 600px">
+            <thead>
+            <tr>
+
+                <th width="50px">序号</th>
+                <th>名称</th>
+                <th>操作</th>
+                <th >分管领导</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>统战部</td>
+                <td><a href="#" class="btn" onclick="kpfagl_kpcl_gxzbsd()">设置指标</a></td>
+                <td><a href="#" class="btn" onclick="kpfagl_kpcl_zbsd_jgld()">选择分管领导</a></td>
+
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>信访督办局</td>
+                <td><a href="#" class="btn" onclick="kpfagl_kpcl_gxzbsd()">设置指标</a></td>
+                <td><a href="#" class="btn" onclick="kpfagl_kpcl_zbsd_jgld()">选择分管领导</a></td>
+
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>团委</td>
+                <td><a href="#" class="btn" onclick="kpfagl_kpcl_gxzbsd()">设置指标</a></td>
+                <td><a href="#" class="btn" onclick="kpfagl_kpcl_zbsd_jgld()">选择分管领导</a></td>
+
+            </tr>
+
+
+
+            </tbody>
+        </table>
+
+        <div class="set-btn" data-spy="affix" data-offset-top="200">
+            <button class="btn green" type="button" onclick="$(this).submit();">保存</button>
+            <a class="btn" href="javascript:;" onclick="$css.closeDialog()">取消</a>
+        </div>
+
+
+    </form>
+
+</div>
+<script>
+    function kpfagl_kpcl_gxzbsd(){
+        var a={
+            id:'kpfagl_kpcl_zbsd',
+            title:'单位指标设定',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpfagl_kpcl_zbsd.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+    function kpfagl_kpcl_zbsd_jgld(){
+        var a={
+            id:'kpfagl_kpcl_zbsd_jgld',
+            title:'选择分管领导',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpfagl_kpcl_zbsd_jgld.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+</script>

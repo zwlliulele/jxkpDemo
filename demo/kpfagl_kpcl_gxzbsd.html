@@ -1,0 +1,164 @@
+<div class="container-fluid">
+    <form class="form-horizontal form-validate" id="form_column" name="form_column" method="post" action="updColumn.action" onsubmit="return validateCallback(this, updColumn)" novalidate="novalidate">
+        <table class="table table-bordered" id="cpfagl_gonggxzbTable" style="min-width: 600px">
+            <thead>
+            <tr>
+
+                <th>指标</th>
+                <th>分值</th>
+                <th>显示状态</th>
+                <th>是否填报</th>
+                <th>是否赋分</th>
+                <th >监管部门</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+
+                <td id="ddjs" class="ztree">党风廉政建设</td>
+                <td><input type="text" value="3"/></td>
+                <td>
+                    <select style="width: 100px">
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td><a href="#" class="btn" onclick="kpfagl_kpcl_zbsd_jgbm()">监管部门</a></td>
+
+
+
+            </tr>
+            <tr>
+
+                <td id="" class="ztree">依法治理</td>
+                <td><input type="text" value="3"/></td>
+                <td>
+                    <select style="width: 100px">
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td><a href="#" class="btn" onclick="kpfagl_kpcl_zbsd_jgbm()">监管部门</a></td>
+
+
+
+            </tr>
+            <tr>
+
+                <td id="" class="ztree">组织建设</td>
+                <td><input type="text" value="3"/></td>
+                <td>
+                    <select style="width: 100px">
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td><a href="#" class="btn" onclick="kpfagl_kpcl_zbsd_jgbm()">监管部门</a></td>
+
+
+
+            </tr>
+            <tr>
+
+                <td id="" class="ztree">精神文明建设</td>
+                <td><input type="text" value="3"/></td>
+                <td>
+                    <select style="width: 100px">
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td><a href="#" class="btn" onclick="kpfagl_kpcl_zbsd_jgbm()">监管部门</a></td>
+
+
+
+            </tr>
+
+
+
+
+            </tbody>
+        </table>
+
+        <div class="set-btn" data-spy="affix" data-offset-top="200">
+            <button class="btn green" type="button" onclick="$(this).submit();">保存</button>
+            <a class="btn" href="javascript:;" onclick="$css.closeDialog()">取消</a>
+        </div>
+
+
+    </form>
+
+</div>
+<script>
+    function kpfagl_kpcl_zbsd_jgbm(){
+        var a={
+            id:'kpfagl_kpcl_zbsd_jgbm',
+            title:'选择监管部门',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpfagl_kpcl_zbsd_jgbm.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+
+</script>

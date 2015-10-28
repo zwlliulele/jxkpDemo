@@ -1,0 +1,159 @@
+<div class="container-fluid">
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="active"><a href="#bat1" data-toggle="tab">绩效评议评价</a></li>
+        <li class=""><a href="#bat2" data-toggle="tab">加减分</a></li>
+    </ul>
+
+    <div class="tab-content of-hidden">
+        <div class="tab-pane active" id="bat1">
+            <form class="form-horizontal table-form no-margin min-w-1024" id="" action="table_basic.html" onsubmit="return navTabSearch(this)" >
+                <table class="table table-bordered ">
+                    <thead>
+                    <tr>
+                        <th style="width: 5%">序号</th>
+                        <th colspan="3">指标名称</th>
+                        <th style="width: 30%">情况说明</th>
+                        <th>考评赋分(2013)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr rel="1">
+                        <td>1</td>
+                        <td>党风廉政建设</td>
+                        <td></td>
+                        <td>党风廉政建设考核说明</td>
+                        <td>2015 OK!财政
+                            <p class="text-right">
+                                <a href="#" onclick="jxkp_jxkp_qksmtx()">【填写】</a>
+                            </p>
+                        </td>
+                        <td><input type="text" value="6"/></td>
+                    </tr>
+                    <tr rel="1">
+                        <td>2</td>
+                        <td>依法治理</td>
+                        <td></td>
+                        <td></td>
+                        <td>2015 OK!财政
+
+                        </td>
+                        <td><input type="text" value="6"/></td>
+                    </tr>
+                    <tr rel="1">
+                        <td>21</td>
+                        <td></td>
+                        <td>依法行政</td>
+                        <td>依法行政考核介绍</td>
+                        <td>2015 OK!财政
+                            <p class="text-right">
+                                <a href="#" onclick="jxkp_jxkp_qksmtx()">【填写】</a>
+                            </p>
+                        </td>
+                        <td><input type="text" value="6"/></td>
+                    </tr>
+                    <tr rel="1">
+                        <td>22</td>
+                        <td></td>
+                        <td>司法衔接</td>
+                        <td>依法行政考核介绍</td>
+                        <td>2015 OK!财政
+
+                        </td>
+                        <td><input type="text" value="6"/></td>
+                    </tr>
+
+
+
+                    </tbody>
+                </table>
+                <div class="set-btn" data-spy="affix" data-offset-top="200">
+                    <button class="btn save" type="button" >保存</button>
+                    <a class="btn" href="javascript:;" onclick="$css.closeDialog();">取消</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="tab-pane" id="bat2">
+            <form class="form-horizontal table-form no-margin min-w-1024" id="add_user_form" action="table_basic.html" onsubmit="return navTabSearch(this)" >
+                <table class="table table-bordered ">
+                    <thead>
+                    <tr>
+                        <th style="width: 5%">序号</th>
+                        <th colspan="3">指标名称</th>
+                        <th style="width: 30%">情况说明</th>
+                        <th>考评赋分(2013)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr rel="1">
+                        <td>1</td>
+                        <td>党风廉政建设</td>
+                        <td></td>
+                        <td>党风廉政建设考核说明</td>
+                        <td>2015 OK!财政
+                            <p class="text-right">
+                                <a href="#" onclick="jxkp_jxkp_qksmtx()">【填写】</a>
+                            </p>
+                        </td>
+                        <td><input type="text" value="6"/></td>
+                    </tr>
+                    <tr rel="1">
+                        <td>2</td>
+                        <td>依法治理</td>
+                        <td></td>
+                        <td></td>
+                        <td>2015 OK!财政
+
+                        </td>
+                        <td><input type="text" value="6"/></td>
+                    </tr>
+                    <tr rel="1">
+                        <td>21</td>
+                        <td></td>
+                        <td>依法行政</td>
+                        <td>依法行政考核介绍</td>
+                        <td>2015 OK!财政
+                            <p class="text-right">
+                                <a href="#" onclick="jxkp_jxkp_qksmtx()">【填写】</a>
+                            </p>
+                        </td>
+                        <td><input type="text" value="6"/></td>
+                    </tr>
+
+
+
+                    </tbody>
+                </table>
+                <div class="set-btn" data-spy="affix" data-offset-top="200">
+                    <button class="btn save" type="button" >保存</button>
+                    <a class="btn" href="javascript:;" onclick="$css.closeDialog();">取消</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+<script>
+    function jxkp_jxkp_qksmtx(){
+        var a={
+            id:'jxkp_jxkp_qksmtx',
+            title:'情况说明填写',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'jxkp_jxkp_qksmtx.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+</script>

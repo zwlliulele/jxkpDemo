@@ -1,0 +1,124 @@
+<table class="table table-bordered m-t-2" style="max-width: 1024px" >
+    <thead>
+    <tr>
+        <th style="width: 3%">序号</th>
+        <th colspan="3">指标名称</th>
+        <th style="max-width:300px">工作进度</th>
+        <th>核查情况</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr >
+        <th>1</th>
+        <th class="pos-relative"> 公文处理，文字起草</th>
+        <th>党的建设</th>
+        <th>XXXXXXXX</th>
+        <th>完善办文程序，保证公文共运转及时、安全、保密。
+            <p class="text-right">
+                <a href="#" onclick="jdhsck()"><i class="icon_pencil"></i>查看</a>
+            </p></th>
+        <th>
+            <p>第一季度 完成良好</p>
+            <p>第一季度 完成良好</p>
+            <p class="text-right">
+                <a href="#" onclick="jdhshs()"><i class="icon_pencil"></i>核查</a>
+            </p>
+        </th>
+    </tr>
+    <tr >
+        <th>1</th>
+        <th class="pos-relative"> 公文处理，文字起草</th>
+        <th>党的建设</th>
+        <th>XXXXXXXX</th>
+        <th>完善办文程序，保证公文共运转及时、安全、保密。
+            <p class="text-right">
+                <a href="#" onclick="jdhsck()"><i class="icon_pencil"></i>查看</a>
+            </p></th>
+        <th>
+            <p>第一季度 完成良好</p>
+            <p>第一季度 完成良好</p>
+            <p class="text-right">
+                <a href="#" onclick="jdhshs()"><i class="icon_pencil"></i>核查</a>
+            </p>
+        </th>
+    </tr>
+    <tr >
+        <th>1</th>
+        <th class="pos-relative"> 公文处理，文字起草</th>
+        <th>党的建设</th>
+        <th>XXXXXXXX</th>
+        <th>完善办文程序，保证公文共运转及时、安全、保密。
+            <p class="text-right">
+                <a href="#" onclick="jdhsck()"><i class="icon_pencil"></i>查看</a>
+            </p></th>
+        <th>
+            <p>第一季度 完成良好</p>
+            <p>第一季度 完成良好</p>
+            <p class="text-right">
+                <a href="#" onclick="jdhshs()"><i class="icon_pencil"></i>核查</a>
+            </p>
+        </th>
+    </tr>
+
+
+
+
+
+    </tbody>
+</table>
+<div class="pagination">
+    <ul>
+        <li><a class="page-next" href="javascript:;">下一页</a></li>　
+        <li><a class="page-last" href="javascript:;">尾页</a></li>　
+        <li>第<input class="page-jump" size="3" maxlength="6" onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" value="1">页 <a href="javascript:;" class="page-go">Go</a> 共8页 每页<input class="page-num" size="3" maxlength="6" onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" name="page.pageSize" value="10">条 记录总数：<b>76</b>条</li>
+    </ul>
+</div>
+
+
+<script>
+    function jdhsck(){
+        var a={
+            id:'_blank',
+            title:'查看工作进度',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        }
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'jdhsck_jdhc.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+
+    }
+    function jdhshs(){
+        var a={
+            id:'_blank',
+            title:'进度核查',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        }
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'jdhc_jdhs.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+
+    }
+
+</script>

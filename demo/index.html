@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="ie7 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--[if lt IE9]><!--><script src="../cssui/themes/metro/js/html5shiv.min.js"></script> <!--<![endif]-->
+		<!--[if lt IE9]><!--><script src="../cssui/themes/metro/js/respond.min.js"></script> <!--<![endif]-->
+		<link rel="shortcut icon" href="favicon.ico" />
+ 		<!-- Site CSS -->
+  		<link href="../cssui/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  		<!--<link href="../cssui/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>-->
+		<!--tablesorter的修改后的主题-->
+		<!--<link rel="stylesheet" href="../cssui/plugins/tablesorter/css/theme.default.min.css"/>-->
+		<link rel="stylesheet" href="../cssui/plugins/tablesorter/css/theme.whiteicon.min.css"/>
+		<link rel="stylesheet" href="../cssui/plugins/tablesorter/css/theme.blackicon.min.css"/>
+  		<link href="../cssui/layout/default.css" rel="stylesheet"/>
+  		<link href="../cssui/layout/document.css" rel="stylesheet"/>
+  		<link href="../cssui/themes/metro/icons.css" rel="stylesheet"/>
+  		<link href="../cssui/themes/metro/style.css" rel="stylesheet"/>
+  		<link href="../cssui/themes/metro/portal/portal.css" rel="stylesheet"/>
+		<link href="../cssui/themes/metro/myCSS.css" rel="stylesheet"/>
+		<link rel="stylesheet" href="../cssui/themes/metro/default.css"/>
+
+  	</head>
+	<body class="page-header-fixed">
+	<div class="header navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="brand" href="index.html"><img class="h-55" src="../custom/logo_ds.png" />银川市绩效考核系统</a>
+				<ul class="nav pull-right">
+					<li class="dropdown user">您好！管理员</li>
+					<li class="dropdown user" id="show_time"></li>
+					<li class="dropdown">
+						<a href="javascript:;" onclick="changePassword()">
+							密码
+						</a>
+					</li>
+					<li class="dropdown">
+						<a href="javascript:;">
+							主题
+						</a>
+					</li>
+					<li class="dropdown">
+						<a class="reloadAll" href="javascript:;">
+							刷新
+						</a>
+					</li>
+					<li class="dropdown">
+						<a href="javascript:;">
+							注销
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="page-container">
+		<div class="page-sidebar" role="main">
+			<div class="folder"><a></a></div>
+			<ul class="page-sidebar-menu">
+
+				<li>
+					<a href="kpfagl.html" target="cssTab" id="kpfagl"  title="考评方案管理" rel="KPFAGL" refresh="true">
+						<i class="icon_list"></i>
+						<span class="title">考评方案管理</span>
+						<span class="selected"></span>
+					</a>
+				</li>
+				<li>
+					<a href="kpzbgl.html" target="cssTab" title="考评进度填报" rel="KPZBGL" refresh="true">
+						<i class="icon_grid"></i>
+						<span class="title">考评指标管理</span>
+						<span class="selected"></span>
+					</a>
+				</li>
+				<li>
+					<a href="kpjdtb.html" target="cssTab" title="考评进度填报" rel="KPJDTB" refresh="true">
+						<i class="icon_pencil"></i>
+						<span class="title">考评进度填报</span>
+						<span class="selected"></span>
+					</a>
+				</li>
+				<li>
+					<a href="jdhs.html" target="cssTab" title="进度核查" id="jdhc_menu" rel="JDHC" refresh="true">
+						<i class="icon_graph_points"></i>
+						<span class="title">进度核查</span>
+						<span class="selected"></span>
+					</a>
+				</li>
+				<li>
+					<a href="kpff.html" target="cssTab" title="考评赋分" rel="KPFF" refresh="true">
+						<i class="icon_pencil"></i>
+						<span class="title">考评赋分</span>
+						<span class="selected"></span>
+					</a>
+				</li>
+				<li>
+					<a href="jxkp.html" target="cssTab" title="绩效考评" rel="JXKP" refresh="true">
+						<i class="icon_bars"></i>
+						<span class="title">绩效考评</span>
+						<span class="selected"></span>
+					</a>
+				</li>
+
+
+
+				<li class="">
+					<a href="javascript:;" title="绩效结果查询" >
+						<i class="icon_sch"></i>
+						<span class="title">绩效结果查询</span>
+						<span class="arrow"></span>
+					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="jxjgcx.html" target="cssTab" title="绩效结果查询" rel="JXJGCX" refresh="true">绩效结果查询</a>
+						</li>
+						<li>
+							<a href="jghz.html" target="cssTab" title="结果汇总" rel="JGHZ" refresh="true">结果汇总</a>
+						</li>
+						<li>
+							<a href="hzjgfs.html" target="cssTab" title="汇总结果分数" rel="HZJGFS" refresh="true">汇总结果分数</a>
+						</li>
+
+					</ul>
+				</li>
+				<li>
+					<a href="xtsz.html" target="cssTab" title="系统设置" rel="XTSZ" refresh="true">
+						<i class="icon_pencil"></i>
+						<span class="title">系统设置</span>
+						<span class="selected"></span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="page-content">
+			<div id="tab-01">
+				<ul class="dropdown-menu" id="menu1">
+					<li>
+						<a href="javascript:;" rel="reload">刷新标签页</a>
+					</li>
+					<li>
+						<a href="javascript:;" rel="close">关闭标签页</a>
+					</li>
+					<li>
+						<a href="javascript:;" rel="closeOther">关闭其他标签页</a>
+					</li>
+					<li>
+						<a href="javascript:;" rel="closeAll">关闭全部标签页</a>
+					</li>
+				</ul>
+				<ul class="nav nav-tabs m-r-48" context-menu="menu1">
+					<li class="active ">
+						<a tabid="home" href="#home">我的桌面</a>
+					</li>
+				</ul>
+				<div class="tab-btn">
+					<!-- <a href="javascript:;" class="left"></a>
+                    <a href="javascript:;" class="right"></a>-->
+					<a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle more"><i></i></a>
+					<ul class="dropdown-menu">
+					</ul>
+				</div>
+				<div class="tab-content layoutBox">
+					<!--主页面布局盒子内部由class=tab-pane组成-->
+
+					<div class="tab-pane active" id="home">
+						<div class="row-fluid column-seperation text-center">
+							<div class="table-header">
+
+								<div class="table-btn h-28	">
+									<a class="btn save pull-left " title="发布公告" href="#"  onclick="addAnnouncement()"><i class="icon-plus icon-white" ></i>发布公告</a>
+								</div>
+							</div>
+							<div class="row-fluid">
+
+								<div class="span6">
+									<div class="portlet box  dark-blue h-750">
+										<div class="portlet-title">
+											<div class="caption">
+												通告列表
+											</div>
+
+										</div>
+										<table class="table table-bordered">
+											<thead>
+											<tr>
+												<th width="50%">标题</th>
+												<th >发布时间</th>
+												<th width="200px">操作</th>
+											</tr>
+											</thead>
+											<tbody>
+											<tr rel="1">
+												<td class="text-center" style="cursor: pointer">通知</td>
+												<td>2015年XX月XX日</td>
+												<td>
+													<a href="#" class="">
+														<i class="icon-pencil"></i>修改
+													</a>
+													<a href="#" class=" ">
+														<i class="icon-trash"></i>删除
+													</a>
+												</td>
+											</tr>
+											<tr rel="1">
+												<td class="text-center" style="cursor: pointer">通知</td>
+												<td>2015年XX月XX日</td>
+												<td>
+													<a href="#" class=" ">
+														<i class="icon-pencil"></i>修改
+													</a>
+													<a href="#" class=" ">
+														<i class="icon-trash"></i>删除
+													</a>
+												</td>
+											</tr>
+
+
+											</tbody>
+										</table>
+										<div class="pagination">
+											<ul>
+												<li><a class="" href="javascript:;">首页</a></li>　
+												<li><a class="" href="javascript:;">上一页</a></li>　
+												<li><a class="" href="javascript:;">下一页</a></li>　
+												<li><a class="" href="javascript:;">尾页</a></li>　
+
+											</ul>
+										</div>
+
+									</div>
+
+
+								</div>
+
+								<div class="span6 no-padding">
+
+
+									<div class="portlet box dark-blue h-750">
+										<div class="portlet-title">
+											<div class="caption">
+												标题
+											</div>
+
+										</div>
+										<div class="portlet-body">
+											<p class="m-t-5 m-b-5">发布人：xxx，发布时间：2015年9月11日16:23:32</p>
+											<hr class="container" style="width: 90%;border:1px solid red">
+											各监控部门：请于29日前完成第一季度赋分工作，并将最终赋分结果纸质版盖章后报考评办（政府综合办公大楼401室）。
+											<p class="pull-right "><a class="color-red" href="#">附件下载</a></p>
+										</div>
+									</div>
+								</div>
+
+
+
+
+
+
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--<div class="footer text-center">
+			<div class="footer-inner">
+				2015 &copy;宁夏银川市政府
+			</div>
+		</div>
+		-->
+	</div>
+  </body>
+<script type="text/javascript" src="../cssui/js/easyloader.js"></script>
+<script type="text/javascript" src="../cssui/plugins/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../cssui/plugins/jquery.history.js"></script>
+<script type="text/javascript" src="../cssui/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../cssui/plugins/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../cssui/plugins/jquery.blockui.min.js"></script>
+<script type="text/javascript" src="../cssui/plugins/lhgdialog/lhgdialog.min.js?skin=add"></script>
+<script type="text/javascript" src="../cssui/plugins/ajaxupload/ajaxupload.3.6.min.js"></script>
+<!--时间组件-->
+<script type="text/javascript" src="../cssui/plugins/My97DatePicker/WdatePicker.js"></script>
+<!--富文本组件-->
+<script type="text/javascript" src="../cssui/plugins/kindeditor-4.1.2/kindeditor-min.js"></script>
+
+<!--树形组件-->
+<script type="text/javascript" src="../cssui/plugins/ztree/js/jquery.ztree.all-3.5.js"></script>
+<!--table排序-->
+<script type="text/javascript" src="../cssui/plugins/tablesorter/js/jquery.tablesorter.js"></script>
+<!--<script type="text/javascript" src="../cssui/plugins/tablesorter/js/jquery.tablesorter.widgets.js"></script>-->
+<script type="text/javascript" src="../cssui/js/cssui.js"></script>
+<script type="text/javascript" src="../cssui/js/app.js"></script>
+<script type="text/javascript" src="../cssui/js/myIndex.js"></script>
+</html>

@@ -1,0 +1,145 @@
+<form class="form-horizontal table-form no-margin min-w-1024" id="add_user_form" action="table_basic.html" onsubmit="return navTabSearch(this)" >
+    <table class="table table-bordered ">
+        <thead>
+        <tr>
+            <th style="width: 5%">序号</th>
+            <th colspan="3">指标名称</th>
+            <th style="width: 5%">指标确认</th>
+            <th>核查情况</th>
+            <th style="width: 20%">工作进度</th>
+            <th colspan="4">得分</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <th class="text-left" colspan="7">共性指标</th>
+            <th>一</th>
+            <th>二</th>
+            <th>三</th>
+            <th>四</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>党的建设
+                <p class="text-right">
+                    <a href="#">【评分依据】</a>
+                </p>
+            </td>
+            <td>党的建设</td>
+            <td></td>
+            <td>组织部</td>
+            <td></td>
+            <td>1、成立“三好“团队及勤政为长效管理办法》、《兴庆区经
+                <p class="text-right">
+                    <a href="#" onclick="jxjgcx_kpjgcx_qktx(this)">【填报详情】</a>
+                </p></td>
+            <td>2.80</td>
+            <td>2.80</td>
+            <td>2.80</td>
+            <td>2.80</td>
+            <td><a href="#" onclick="jxjgcx_kpjgcx_xq(this)">【详情】</a></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>党的建设
+                <p class="text-right">
+                    <a href="#">【评分依据】</a>
+                </p>
+            </td>
+            <td>党的建设</td>
+            <td></td>
+            <td>组织部</td>
+            <td></td>
+            <td>1、成立“三好“团队及勤政为长效管理办法》、《兴庆区经
+                <p class="text-right">
+                    <a href="#" onclick="jxjgcx_kpjgcx_qktx(this)">【填报详情】</a>
+                </p></td>
+            <td>2.80</td>
+            <td>2.80</td>
+            <td>2.80</td>
+            <td>2.80</td>
+            <td><a href="#" onclick="jxjgcx_kpjgcx_xq(this)">【详情】</a></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>党的建设
+                <p class="text-right">
+                    <a href="#">【评分依据】</a>
+                </p>
+            </td>
+            <td>党的建设</td>
+            <td></td>
+            <td>组织部</td>
+            <td></td>
+            <td>1、成立“三好“团队及勤政为长效管理办法》、《兴庆区经
+                <p class="text-right">
+                    <a href="#" onclick="jxjgcx_kpjgcx_qktx(this)">【填报详情】</a>
+                </p></td>
+            <td>2.80</td>
+            <td>2.80</td>
+            <td>2.80</td>
+            <td>2.80</td>
+            <td><a href="#" onclick="jxjgcx_kpjgcx_xq(this)">【详情】</a></td>
+        </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+    <div class="set-btn" data-spy="affix" data-offset-top="200">
+
+        <a class="btn" href="javascript:;" onclick="$css.closeDialog();">取消</a>
+    </div>
+</form>
+<script>
+    function jxjgcx_kpjgcx_qktx(obj){
+        var title=$(obj).html();
+        var a={
+            id:' jxjgcx_kpjgcx_qktx',
+            title:'情况填写'+title,
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        }
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:' jxjgcx_kpjgcx_qktx.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+
+    }
+    function jxjgcx_kpjgcx_xq(obj){
+        var title=$(obj).html();
+        var a={
+            id:' jxjgcx_kpjgcx_xq',
+            title:title,
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        }
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:' jxjgcx_kpjgcx_xq.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+
+    }
+</script>

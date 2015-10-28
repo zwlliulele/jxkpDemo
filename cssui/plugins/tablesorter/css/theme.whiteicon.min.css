@@ -1,0 +1,26 @@
+.tablesorter-whiteicon .header, .tablesorter-whiteicon .tablesorter-header {
+    padding: 4px 20px 4px 4px;
+    cursor: pointer;
+    background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAAP///////yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
+    background-position: center right;
+    background-repeat: no-repeat
+}
+
+.tablesorter-whiteicon .headerSortUp, .tablesorter-whiteicon .tablesorter-headerAsc, .tablesorter-whiteicon .tablesorter-headerSortUp {
+    background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAAP///////yH5BAEAAAEALAAAAAAVAAQAAAINjI8Bya2wnINUMopZAQA7);
+    color: #fff;
+
+}
+
+.tablesorter-whiteicon .headerSortDown, .tablesorter-whiteicon .tablesorter-headerDesc, .tablesorter-whiteicon .tablesorter-headerSortDown {
+
+    color: #fff;
+    background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAAP///////yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7);
+
+
+}
+.tablesorter-whiteicon thead .sorter-false {
+    background-image: none;
+    cursor: default;
+    padding: 4px
+}

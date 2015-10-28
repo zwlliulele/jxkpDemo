@@ -1,0 +1,257 @@
+<div class="container-fluid">
+    <div class="table-header">
+        <div class="table-btn">
+            <a class="btn" title="添加数据" href="#"><i class="icon-plus"></i>新增</a>
+            <a class="btn" title="添加数据" href="#"><i class="icon-remove"></i>删除</a>
+            <a class="btn pull-right" href="javascript:;" onclick="$css.closeDialog()">取消</a>
+            <a class="btn green pull-right"  onclick="$(this).submit();">保存 </a>
+
+        </div>
+
+
+
+    </div>
+    <form class="form-horizontal form-validate" id="form_column" name="form_column" method="post"
+          action="" >
+        <table class="table table-bordered" id="cpfagl_gonggxzbTable" style="min-width: 1600px">
+            <thead>
+            <tr>
+                <th><input type="checkbox"/></th>
+                <th width="100px">名称</th>
+                <th>指标定义方式</th>
+                <th>指标说明</th>
+                <th>打分依据</th>
+                <th width="50">权重</th>
+                <th>考评人</th>
+                <th>考评周期</th>
+                <th>赋分周期</th>
+                <th>绩效登记部门</th>
+                <th width="300px">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td><input type="text" value="共性指标"/></td>
+                <td>
+                    <select style="width: 100px">
+                        <option>统一定义</option>
+                        <option>个性定义</option>
+                    </select>
+                </td>
+                <td class="no-padding"><textarea name="" id="" rows="3"></textarea></td>
+                <td class="no-padding"><textarea name="" id="" rows="3"></textarea></td>
+                <td><input type="text" value="81" style="width: 100px"/></td>
+                <td>
+                    <select style="width: 100px">
+                        <option>监管部门</option>
+                        <option>分管领导</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>年</option>
+                        <option>半年</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>年</option>
+                        <option>半年</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>本部门</option>
+                        <option>分管领导</option>
+                    </select>
+                </td>
+
+                <td>
+                    <a href="#" class=" " onclick="kpfagl_kpcl_sjkz()"><i class="icon-trash"></i>时间控制</a>
+                    <a href="#" class=" " onclick="kpfagl_kpcl_gxzbsd()"><i class="icon-trash"></i>指标设定</a>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td><input type="text" value="加减分"/></td>
+                <td>
+                    <select style="width: 100px">
+                        <option>统一定义</option>
+                        <option>个性定义</option>
+                    </select>
+                </td>
+                <td class="no-padding"><textarea name="" id="" rows="3"></textarea></td>
+                <td class="no-padding"><textarea name="" id="" rows="3"></textarea></td>
+
+                <td><input type="text" value="81" style="width: 100px"/></td>
+                <td>
+                    <select style="width: 100px">
+                        <option>监管部门</option>
+                        <option>分管领导</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>年</option>
+                        <option>半年</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>年</option>
+                        <option>半年</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>本部门</option>
+                        <option>分管领导</option>
+                    </select>
+                </td>
+                <td>
+                    <a href="#" class=" " onclick="kpfagl_kpcl_sjkz()"><i class="icon-trash"></i>时间控制</a>
+                    <a href="#" class=" " onclick="kpfagl_kpcl_ywzbsd()"><i class="icon-trash"></i>指标设定</a>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td><input type="text" value="业务指标"/></td>
+                <td>
+                    <select style="width: 100px">
+                        <option>个性定义</option>
+                        <option>统一定义</option>
+                    </select>
+                </td>
+                <td class="no-padding"><textarea name="" id="" rows="3"></textarea></td>
+                <td class="no-padding"><textarea name="" id="" rows="3"></textarea></td>
+                <td><input type="text" value="81" style="width: 100px"/></td>
+                <td>
+                    <select style="width: 100px">
+                        <option>监管部门</option>
+                        <option>分管领导</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>年</option>
+                        <option>半年</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>年</option>
+                        <option>半年</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>本部门</option>
+                        <option>分管领导</option>
+                    </select>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+
+
+            </tbody>
+        </table>
+
+
+    </form>
+
+</div>
+<style>
+    input.w-50, select {
+        width: 100px !important;
+    }
+
+</style>
+<script>
+    function kpfagl_pkdxfl_ck() {
+        var a = {
+            id: 'kpfagl_pkdxfl_ck',
+            title: '查看包含下级单位',
+            lock: true,
+            resize: false,
+            max: false,
+            min: false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url: 'kpfagl_pkdxfl_ck.html',
+            success: function (data) {
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache: false
+        });
+    }
+    function kpfagl_kpcl_sjkz() {
+        var a = {
+            id: 'kpfagl_kpcl_sjkz',
+            title: '时间控制',
+            lock: true,
+            resize: false,
+            max: false,
+            min: false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url: 'kpfagl_kpcl_sjkz.html',
+            success: function (data) {
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache: false
+        });
+    }
+    function kpfagl_kpcl_gxzbsd() {
+        var a = {
+            id: 'kpfagl_kpcl_gxzbsd',
+            title: '共性指标设定',
+            lock: true,
+            resize: false,
+            max: false,
+            min: false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url: 'kpfagl_kpcl_gxzbsd.html',
+            success: function (data) {
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache: false
+        });
+    }
+    function kpfagl_kpcl_zbsd() {
+        var a = {
+            id: 'kpfagl_kpcl_zbsd',
+            title: '指标设定',
+            lock: true,
+            resize: false,
+            max: false,
+            min: false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url: 'kpfagl_kpcl_zbsd.html',
+            success: function (data) {
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache: false
+        });
+    }
+</script>

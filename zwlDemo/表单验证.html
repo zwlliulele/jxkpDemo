@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="ie7 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lt IE9]><!--><script src="../cssui/themes/metro/js/html5shiv.min.js"></script> <!--<![endif]-->
+    <!--[if lt IE9]><!--><script src="../cssui/themes/metro/js/respond.min.js"></script> <!--<![endif]-->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- Site CSS -->
+    <link href="../cssui/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <!--<link href="../cssui/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>-->
+    <!--tablesorter的修改后的主题-->
+    <!--<link rel="stylesheet" href="../cssui/plugins/tablesorter/css/theme.default.min.css"/>-->
+    <link rel="stylesheet" href="../cssui/plugins/tablesorter/css/theme.whiteicon.min.css"/>
+    <link rel="stylesheet" href="../cssui/plugins/tablesorter/css/theme.blackicon.min.css"/>
+    <link href="../cssui/layout/default.css" rel="stylesheet"/>
+    <link href="../cssui/layout/document.css" rel="stylesheet"/>
+    <link href="../cssui/themes/metro/icons.css" rel="stylesheet"/>
+    <link href="../cssui/themes/metro/style.css" rel="stylesheet"/>
+    <link href="../cssui/themes/metro/portal/portal.css" rel="stylesheet"/>
+    <link href="../cssui/themes/metro/myCSS.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../cssui/themes/metro/default.css"/>
+    <script type="text/javascript" src="../cssui/js/easyloader.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.history.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.blockui.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/lhgdialog/lhgdialog.min.js?skin=add"></script>
+    <script type="text/javascript" src="../cssui/plugins/ajaxupload/ajaxupload.3.6.min.js"></script>
+    <!--时间组件-->
+    <script type="text/javascript" src="../cssui/plugins/My97DatePicker/WdatePicker.js"></script>
+    <!--富文本组件-->
+    <script type="text/javascript" src="../cssui/plugins/kindeditor-4.1.2/kindeditor-min.js"></script>
+
+    <!--树形组件-->
+    <script type="text/javascript" src="../cssui/plugins/ztree/js/jquery.ztree.all-3.5.js"></script>
+    <!--table排序-->
+    <script type="text/javascript" src="../cssui/plugins/tablesorter/js/jquery.tablesorter.js"></script>
+    <!--<script type="text/javascript" src="../cssui/plugins/tablesorter/js/jquery.tablesorter.widgets.js"></script>-->
+    <script type="text/javascript" src="../cssui/js/cssui.js"></script>
+    <script type="text/javascript" src="../cssui/js/app.js"></script>
+    <script type="text/javascript" src="../cssui/js/myIndex.js"></script>
+</head>
+<body>
+<form action="#" class="form-horizontal" id="frmV">
+    <div class="control-group">
+        <label class="control-label">必填<span class="required">*</span></label>
+        <div class="controls">
+            <input type="text" name="i1" class="input-xlarge required">
+        </div>
+
+    </div>
+    <div class="control-group">
+        <label class="control-label">其他验证</label>
+        <div class="controls">
+            必填 :required
+            必填+邮箱:required-email
+            电话:phone
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">密码验证</label>
+        <div class="controls">
+            重复密码验证:重复密码input里添加equalto="#pwd",#pwd为密码input的id
+        </div>
+        <div class="controls">
+            <input type="text" name="pwd" id="pwd" class="input-xlarge">
+        </div>
+        <div class="controls">
+            <input type="text" name="" class="input-xlarge" equalto="#pwd">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">提交按钮</label>
+        <div class="controls">
+            <button type="submit">提交</button>
+        </div>
+    </div>
+
+</form>
+
+
+<form action="#" class="form-horizontal" id="twoForm">
+    <div class="control-group">
+        <label class="control-label">必填</label>
+        <div class="controls">
+            <input type="text" name="username" class="input-xlarge">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">邮箱</label>
+        <div class="controls">
+            <input type="email" name="email" class="input-xlarge">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">邮政编码</label>
+        <div class="controls">
+            <input type="text" name="ZipCode" class="input-xlarge">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">提交按钮</label>
+        <div class="controls">
+            <button type="submit">提交</button>
+        </div>
+    </div>
+
+
+</form>
+
+
+
+<script>
+    //自定义验证，可以放入jquery.validate.min.js最后
+    jQuery.validator.addMethod("isZipCode", function(value, element) {
+        var tel = /^[0-9]{6}$/;
+        return this.optional(element) || (tel.test(value));
+    }, "请正确填写您的邮政编码");
+    $(function () {
+        $("#frmV").validate();
+        $("#twoForm").validate({
+            debug:true,//开启调试正式环境请取消
+            rules:{
+                username:{
+                    required:true,
+                    remote: {
+                        url: "check-email.php",     //后台处理程序
+                        type: "post",               //数据发送方式
+                        dataType: "json",           //接受数据格式
+                        data: {                     //要传递的数据
+                            username: function() {
+                                return $("#username").val();
+                            }
+                        }
+                    }
+                },
+                email:{
+                    required:true,
+                    email:true
+                },
+                ZipCode:"isZipCode"
+            },
+            messages:{
+                username:{
+                    required:"username不能为空",
+                    remote:"ajax验证错误~~"
+                },
+                email:{
+                    required:"E-mail不能为空",
+                    email:"E-mail地址不正确"
+                },
+                ZipCode:"请正确填写您的邮政编码"
+            }
+        });
+    });
+    /*
+    * 1	required:true	必须输入的字段。
+     2	remote:"check.php"	使用 ajax 方法调用 check.php 验证输入值。
+     3	email:true	必须输入正确格式的电子邮件。
+     4	url:true	必须输入正确格式的网址。
+     5	date:true	必须输入正确格式的日期。日期校验 ie6 出错，慎用。
+     6	dateISO:true	必须输入正确格式的日期（ISO），例如：2009-06-23，1998/01/22。只验证格式，不验证有效性。
+     7	number:true	必须输入合法的数字（负数，小数）。
+     8	digits:true	必须输入整数。
+     9	creditcard:	必须输入合法的信用卡号。
+     10	equalTo:"#field"	输入值必须和 #field 相同。
+     11	accept:	输入拥有合法后缀名的字符串（上传文件的后缀）。
+     12	maxlength:5	输入长度最多是 5 的字符串（汉字算一个字符）。
+     13	minlength:10	输入长度最小是 10 的字符串（汉字算一个字符）。
+     14	rangelength:[5,10]	输入长度必须介于 5 和 10 之间的字符串（汉字算一个字符）。
+     15	range:[5,10]	输入值必须介于 5 和 10 之间。
+     16	max:5	输入值不能大于 5。
+     17	min:10	输入值不能小于 10。
+
+     // 重置表单
+     $().ready(function() {
+     var validator = $("#signupForm").validate({
+     submitHandler:function(form){
+     alert("submitted");
+     form.submit();
+     }
+     });
+     $("#reset").click(function() {
+     validator.resetForm();
+     });
+     });
+
+
+     radio 和 checkbox、select 的验证
+     radio 的 required 表示必须选中一个。
+     <input  type="radio" id="gender_male" value="m" name="gender" class="{required:true}" />
+     <input  type="radio" id="gender_female" value="f" name="gender"/>
+     checkbox 的 required 表示必须选中。
+     <input type="checkbox" class="checkbox" id="agree" name="agree" class="{required:true}" />
+     checkbox 的 minlength 表示必须选中的最小个数，maxlength 表示最大的选中个数，rangelength:[2,3] 表示选中个数区间。
+     <input type="checkbox" class="checkbox" id="spam_email" value="email" name="spam[]" class="{required:true, minlength:2}" />
+     <input type="checkbox" class="checkbox" id="spam_phone" value="phone" name="spam[]" />
+     <input type="checkbox" class="checkbox" id="spam_mail" value="mail" name="spam[]" />
+     select 的 required 表示选中的 value 不能为空。
+     <select id="jungle" name="jungle" title="Please select something!" class="{required:true}">
+     <option value=""></option>
+     <option value="1">Buga</option>
+     <option value="2">Baga</option>
+     <option value="3">Oi</option>
+     </select>
+     select 的 minlength 表示选中的最小个数（可多选的 select），maxlength 表示最大的选中个数，rangelength:[2,3] 表示选中个数区间。
+     <select id="fruit" name="fruit" title="Please select at least two fruits" class="{required:true, minlength:2}" multiple="multiple">
+     <option value="b">Banana</option>
+     <option value="a">Apple</option>
+     <option value="p">Peach</option>
+     <option value="t">Turtle</option>
+     </select>
+    * */
+</script>
+</body>
+
+</html>

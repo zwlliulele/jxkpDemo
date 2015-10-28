@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="ie7 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lt IE9]><!--><script src="../cssui/themes/metro/js/html5shiv.min.js"></script> <!--<![endif]-->
+    <!--[if lt IE9]><!--><script src="../cssui/themes/metro/js/respond.min.js"></script> <!--<![endif]-->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- Site CSS -->
+    <link href="../cssui/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <!--<link href="../cssui/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>-->
+    <!--tablesorter的修改后的主题-->
+    <!--<link rel="stylesheet" href="../cssui/plugins/tablesorter/css/theme.default.min.css"/>-->
+    <link rel="stylesheet" href="../cssui/plugins/tablesorter/css/theme.whiteicon.min.css"/>
+    <link rel="stylesheet" href="../cssui/plugins/tablesorter/css/theme.blackicon.min.css"/>
+    <link href="../cssui/layout/default.css" rel="stylesheet"/>
+    <link href="../cssui/layout/document.css" rel="stylesheet"/>
+    <link href="../cssui/themes/metro/icons.css" rel="stylesheet"/>
+    <link href="../cssui/themes/metro/style.css" rel="stylesheet"/>
+    <link href="../cssui/themes/metro/portal/portal.css" rel="stylesheet"/>
+    <link href="../cssui/themes/metro/myCSS.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../cssui/themes/metro/default.css"/>
+    <script type="text/javascript" src="../cssui/js/easyloader.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.history.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.blockui.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/lhgdialog/lhgdialog.min.js?skin=add"></script>
+    <script type="text/javascript" src="../cssui/plugins/ajaxupload/ajaxupload.3.6.min.js"></script>
+    <!--时间组件-->
+    <script type="text/javascript" src="../cssui/plugins/My97DatePicker/WdatePicker.js"></script>
+    <!--富文本组件-->
+    <script type="text/javascript" src="../cssui/plugins/kindeditor-4.1.2/kindeditor-min.js"></script>
+
+    <!--树形组件-->
+    <script type="text/javascript" src="../cssui/plugins/ztree/js/jquery.ztree.all-3.5.js"></script>
+    <!--table排序-->
+    <script type="text/javascript" src="../cssui/plugins/tablesorter/js/jquery.tablesorter.js"></script>
+    <!--<script type="text/javascript" src="../cssui/plugins/tablesorter/js/jquery.tablesorter.widgets.js"></script>-->
+    <script type="text/javascript" src="../cssui/js/cssui.js"></script>
+    <script type="text/javascript" src="../cssui/js/app.js"></script>
+    <script type="text/javascript" src="../cssui/js/myIndex.js"></script>
+</head>
+<body>
+<textarea name="content" id="" cols="30" rows="10" style="width: 800px"></textarea>
+
+<script>
+    var editor = KindEditor.create('textarea[name="content"]',{
+
+        resizeType : 1,//resizeType：值为 0、1 或 2。0 表示不能拖动，1 表示只能改变高度，2 表示可以拖动 改变宽度和高度。
+
+        allowImageUpload : true,//true 或 false。True 表示显示上传图片标签
+
+        items : [
+
+            'source','code','|','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic',
+
+            'underline', 'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright',
+
+            'insertorderedlist', 'insertunorderedlist', '|', 'emoticons', 'image', 'link', '|', 'preview',
+
+            'fullscreen']
+
+    });
+    var pars ={newsId:"33"};
+
+    var toUrl='上传URL地址';
+
+    $.post(toUrl,pars,function(data){
+
+        switch(data.result){
+
+            case 0:
+
+                editor.html(data.msg);
+
+                break;
+
+            default:
+
+                $.dialog.alert(data.msg);
+
+                break;
+
+        }
+
+    },'json');
+/*
+* 配置参数说明：
+
+ textarea：组件容器，如 textarea[name="item.content"]。
+
+ resizeType：值为 0、1 或 2。0 表示不能拖动，1 表示只能改变高度，2 表示可以拖动 改变宽度和高度。
+
+ allowImageUpload：true 或 false。True 表示显示上传图片标签。
+
+ items：配置编辑器的工具栏，其中"-"表示换行，"|"表示分隔符。
+
+ width：编辑器的宽度，可以设置 px 或%。
+
+ height：编辑器的高度，只能设置 px。
+
+ minWidth：指定编辑器最小宽度，单位为 px。
+
+ minHeight：指定编辑器最小高度，单位为 px。
+
+ pluginsPath：指定编辑器的 plugins 目录，默认值为 KindEditor.scriptPath + 'plugins/'。
+
+ skinsPath：指定编辑器的 skins 目录，默认值为 KindEditor.scriptPath + 'skins/'。
+
+ filterMode：值为 true 时过滤 HTML 代码，值为 false 时允许输入任何代码。
+
+ syncType：同步数据的方式，可设置为 auto、form 和空。auto 表示每次修改时都会同步，form 表示提交表单时同步，空表示不会自动同步，默认值是 form。
+
+ * */
+</script>
+</body>
+
+</html>

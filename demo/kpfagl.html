@@ -1,0 +1,336 @@
+<form class="form-horizontal table-form no-margin" id="add_user_form" action="table_basic.html" onsubmit="return navTabSearch(this)">
+    <div class="table-header">
+        <div class="table-search">
+            <ul>
+                <li><a class="btn btn-primary" href="#" onclick="kpfagl_xzfa()"><i class="icon-plus icon-white"></i>新增</a></li>
+            </ul>
+        </div>
+    </div>
+    <table class="table table-bordered dark-blue" id="kpfaglTable">
+        <thead>
+        <tr>
+            <th width="40%">方案名称</th>
+            <th width="50px">考评年度</th>
+            <th  width="50px">考评周期</th>
+            <!--<th  width="180px">考评起始日期</th>-->
+            <th  width="50px">启用状态</th>
+            <th width="280px">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+       <tr >
+           <td style="cursor: pointer" onclick="showDetial()">2015年度绩效考评方案</td>
+           <td>2015</td>
+           <td>年</td>
+           <!--<td>2015-01-01/2015-03-06</td>-->
+           <td>是</td>
+           <td>
+               <a href="javascript:;" class="color-red"   onclick="kpfagl_pkdxfl()">考评对象分类</a>
+               <a href="javascript:;"  onclick="kpfagl_xzfa()" >编辑</a>
+               <a href="javascript:;"  >删除</a>
+               <a href="javascript:;"  onclick="showDetial()">查看详情</a>
+           </td>
+       </tr>
+        </tbody>
+    </table>
+    <!--<div><a href="#" onclick="closeThisTab()">关闭当前页</a></div>-->
+    <!--<script>-->
+        <!--function closeThisTab(){-->
+            <!--$css.closeTab("tab_6040");-->
+        <!--}-->
+    <!--</script>-->
+</form>
+<table class="table table-bordered dark-blue" id="kpfagl_xqTable" style="display: none">
+    <thead>
+    <tr>
+        <th width="50%">对象类别</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td id="fzTree" class="ztree"></td>
+    </tr>
+    </tbody>
+</table>
+<script type="text/javascript">
+    function showDetial(){
+$('#kpfagl_xqTable').show();
+    }
+    //为table添加排序插件
+    $('#kpzbglTable').tablesorter({
+        headers: {0:{sorter:false},8:{sorter:false}}//第一行不排序
+    });
+
+    function kpfagl_xzfa(){
+       // event.preventDefault();
+        //event.stopPropagation();    // 阻止冒泡事件
+        var a={
+            id:'kpfagl_xzfa',
+            title:'新增考评方案',
+            lock:true,
+            background:"#000",
+            resize: false,
+            max:false,
+            min:false,
+            button:[{name: '保存', callback: function () {
+                alert("保存");
+                return false;
+            }}, {name: '取消'}]
+
+
+    };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpfagl_xzfa.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+
+    }
+
+    function kpfagl_kpcl(){
+        var a={
+            id:'kpfagl_kpcl',
+            title:'考评策略',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            opacity:"0.5"
+
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpfagl_kpcl.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+    function kpfagl_fzkpcl(){
+        var a={
+            id:'kpfagl_fzkpcl',
+            title:'分组考评策略',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            opacity:"0.5"
+
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpfagl_fzkpcl.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+    function kpfagl_kpcl_zbsd(){
+        var a={
+            id:'kpfagl_kpcl_zbsd',
+            title:'单位考评策略',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            opacity:"0.5"
+
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpfagl_kpcl_zbsd.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+
+    function kpfagl_pkdxfl(){
+        //event.stopPropagation();    // 阻止冒泡事件
+        var a={
+            id:'kpfagl_pkdxfl',
+            title:'考评对象分类',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false
+
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpfagl_pkdxfl.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+    function kpfagl_pkdxfz(){
+        var a={
+            id:'kpfagl_pkdxfz',
+            title:'考评对象分组',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false
+
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpfagl_pkdxfz.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+
+    function kpfagl_kpcl_ywzbsd() {
+        var a = {
+            id: 'kpfagl_kpcl_ywzbsd',
+            title: '业务指标设定',
+            lock: true,
+            resize: false,
+            max: false,
+            min: false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url: 'kpfagl_kpcl_ywzbsd.html',
+            success: function (data) {
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache: false
+        });
+    }
+    function kpfagl_gongxzbsdl(){
+        var a={
+            id:'kpfagl_gongxzb',
+            title:'共性指标管理',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false
+
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpfagl_gongxzb.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+    //管理树形
+    var setting = {
+        view: {
+            selectedMulti: false//是否允许多选
+
+        },
+        callback: {
+            onClick:findNodes,//点击节点触发函数
+            beforeRemove: beforeRemove//删除前确认回调函数
+        }
+    };
+    var zNodes = [{
+        id:"001",
+        name: "市直部门",
+        menuList:'<a class="ztreeMenu" data-id="001" onclick="kpfagl_pkdxfz(this)">对象分组</a> <a href="#"  class="ztreeMenu" onclick="kpfagl_kpcl(this)">考评策略</a>',
+        open: false,
+        children: [{
+            id:"0001",
+            name: "党群工作组",
+            menuList:'<a href="#"  class="ztreeMenu" onclick="kpfagl_fzkpcl(this)">分组考评策略</a>',
+            children: [{
+                id:"00001",
+                name: "统战部",
+                menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+            },{
+                id:"00001",
+                name: "信访督办局",
+                menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+            },{
+                id:"00001",
+                name: "团委",
+                menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+            }]
+        }]
+    },{
+        id:"001",
+        name: "市直部门",
+        menuList:'<a class="ztreeMenu" data-id="001" onclick="kpfagl_pkdxfz(this)">对象分组</a> <a href="#"  class="ztreeMenu" onclick="kpfagl_kpcl(this)">考评策略</a>',
+        open: false,
+        children: [{
+            id:"0001",
+            name: "党群工作组",
+            menuList:'<a href="#"  class="ztreeMenu" onclick="kpfagl_fzkpcl(this)">分组考评策略</a>',
+            children: [{
+                id:"00001",
+                name: "统战部",
+                menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+            },{
+                id:"00001",
+                name: "信访督办局",
+                menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+            },{
+                id:"00001",
+                name: "团委",
+                menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+            }]
+        }]
+
+    }];
+    //删除前操作
+    function beforeRemove(fzTree, treeNode){
+        var name = treeNode.name;
+        alert(name);
+        return false;//如果不设定返回false 默认会继续执行 onRemove 函数
+    }
+    function findNodes() {
+        var treeObj = $.fn.zTree.getZTreeObj("fzTree");
+        //获取全部节点数据
+        var nodes = treeObj.getSelectedNodes(true);//选取勾选的为true,未勾选为false
+        for (var i = 0, l = nodes.length; i < l; i++) {
+            var zdyId = nodes[i].id;
+            var nodeName = nodes[i].name;
+            if(zdyId=='001')
+            {
+                $('#kpfagl_fzglId').show();
+                $('#kpfagl_fzbfId').hide();
+            }else{
+                $('#kpfagl_fzglId').hide();
+                $('#kpfagl_fzbfId').show();
+            }
+
+
+        }
+    }
+    using('tree',function(){
+        $.fn.zTree.init($("#fzTree"), setting, zNodes);
+    });
+</script>

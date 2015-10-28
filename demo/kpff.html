@@ -1,0 +1,109 @@
+<div class="portlet box dark-blue">
+    <div class="portlet-title">
+        <div class="caption" >
+            <i class="icon-reorder"></i>
+            党群部门，人民团体，检察院，法院
+        </div>
+    </div>
+    <div class="portlet-body">
+        <a href="#" id="" class="btn green big m-t-5" onclick="kpff_kpff_ld()">纪检委(领导打分)</a>
+        <a href="#" id="" class="btn green big m-t-5" onclick="kpff_kpff_jgdw()">组织部(监管单位打分)</a>
+    </div>
+</div>
+<div class="portlet box dark-blue">
+    <div class="portlet-title">
+        <div class="caption" >
+            <i class="icon-reorder"></i>
+            市直及垂管部门
+        </div>
+    </div>
+    <div class="portlet-body">
+        <a href="#" id="" class="btn green big m-t-5" onclick="kpff_kpff()">纪检委</a>
+        <a href="#" id="" class="btn green big m-t-5" onclick="kpff_kpff()">组织部</a>
+    </div>
+</div>
+<div class="portlet box dark-blue">
+    <div class="portlet-title">
+        <div class="caption" >
+            <i class="icon-reorder"></i>
+            政府直隶机构
+        </div>
+    </div>
+    <div class="portlet-body">
+        <a href="#" id="" class="btn green big m-t-5" onclick="kpff_kpff()">纪检委</a>
+        <a href="#" id="" class="btn green big m-t-5" onclick="kpff_kpff()">组织部</a>
+    </div>
+</div>
+<div class="portlet box dark-blue" >
+    <div class="portlet-title">
+        <div class="caption" >
+            <i class="icon-reorder"></i>
+            乡镇
+        </div>
+    </div>
+    <div class="portlet-body">
+        <a href="#" id="" class="btn green big m-t-5" onclick="kpff_kpff()">纪检委</a>
+        <a href="#" id="" class="btn green big m-t-5" onclick="kpff_kpff()">组织部</a>
+    </div>
+</div>
+<div class="portlet box dark-blue">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-reorder"></i>
+            街道办事处
+        </div>
+    </div>
+    <div class="portlet-body">
+        <a href="#" id="zfb" class="btn green big m-t-5" onclick="kpff_kpff()">纪检委</a>
+        <a href="#" id="zzb" class="btn green big m-t-5" onclick="kpff_kpff()">组织部</a>
+    </div>
+</div>
+<script>
+    function kpff_kpff_ld(){
+
+        var a={
+            id:'kpff_kpff_ld',
+            title:'考评赋分',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpff_kpff_ld.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+
+            },
+            cache:false
+        });
+    }
+    function kpff_kpff_jgdw(){
+
+        var a={
+            id:'kpff_kpff_jgdw',
+            title:'考评赋分',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpff_kpff_jgdw.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+
+            },
+            cache:false
+        });
+    }
+
+</script>

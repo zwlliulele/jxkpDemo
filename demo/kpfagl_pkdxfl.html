@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="table-header">
+        <div class="table-btn">
+            <a class="btn" title="添加数据" href="#" ><i class="icon-plus"></i>新增</a>
+            <a class="btn" title="添加数据" href="#"><i class="icon-remove"></i>删除</a>
+        </div>
+    </div>
+    <form class="form-horizontal form-validate" id="form_column" name="form_column" method="post" action="updColumn.action" onsubmit="return validateCallback(this, updColumn)" novalidate="novalidate">
+        <table class="table table-bordered" id="cpfagl_gonggxzbTable" style="min-width: 600px">
+            <thead>
+            <tr>
+                <th><input type="checkbox"/></th>
+                <th>考评对象分类</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td><input type="text" value="市直及垂管部门"/></td>
+
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td><input type="text" value="政府直属机构"/></td>
+
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td><input type="text" value="乡镇"/></td>
+
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td><input type="text" value="街道办事处"/></td>
+
+            </tr>
+
+
+            </tbody>
+        </table>
+
+        <div class="set-btn" data-spy="affix" data-offset-top="200">
+            <button class="btn green" type="button" onclick="$(this).submit();">保存</button>
+            <a class="btn" href="javascript:;" onclick="$css.closeDialog()">取消</a>
+        </div>
+
+
+    </form>
+
+</div>
+<style> input{width: 96%}</style>

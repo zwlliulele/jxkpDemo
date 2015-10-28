@@ -1,0 +1,147 @@
+<div class="container-fluid">
+    <div class="table-header">
+        <div class="table-btn">
+            <a class="btn" title="添加数据" href="#"><i class="icon-plus"></i>新增</a>
+            <a class="btn" title="添加数据" href="#"><i class="icon-remove"></i>删除</a>
+        </div>
+    </div>
+    <form class="form-horizontal form-validate" id="form_column" name="form_column" method="post"
+          action="updColumn.action" onsubmit="return validateCallback(this, updColumn)" novalidate="novalidate" style="overflow: auto">
+        <table class="table table-bordered" id="cpfagl_gonggxzbTable" style="min-width: 600px">
+            <thead>
+            <tr>
+                <th><input type="checkbox"/></th>
+                <th width="200px">名称</th>
+                <th>指标定义方式</th>
+                <th>考评人</th>
+                <th>考评周期</th>
+                <th>赋分周期</th>
+                <th>绩效登记部门</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td><input type="text" value="共性指标"/></td>
+                <td>
+                    <select style="width: 100px">
+                        <option>统一定义</option>
+                        <option>个性定义</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>监管部门</option>
+                        <option>分管领导</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>年</option>
+                        <option>半年</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>年</option>
+                        <option>半年</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>本部门</option>
+                        <option>分管领导</option>
+                    </select>
+                </td>
+
+
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td><input type="text" value="业务指标"/></td>
+                <td>
+                    <select style="width: 100px">
+                        <option>个性定义</option>
+                        <option>统一定义</option>
+                    </select>
+                </td>
+
+                <td>
+                    <select style="width: 100px">
+                        <option>监管部门</option>
+                        <option>分管领导</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>年</option>
+                        <option>半年</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>年</option>
+                        <option>半年</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>本部门</option>
+                        <option>分管领导</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td><input type="text" value="加减分"/></td>
+                <td>
+                    <select style="width: 100px">
+                        <option>统一定义</option>
+                        <option>个性定义</option>
+                    </select>
+                </td>
+
+                <td>
+                    <select style="width: 100px">
+                        <option>监管部门</option>
+                        <option>分管领导</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>年</option>
+                        <option>半年</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>年</option>
+                        <option>半年</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100px">
+                        <option>本部门</option>
+                        <option>分管领导</option>
+                    </select>
+                </td>
+
+            </tr>
+
+
+            </tbody>
+        </table>
+
+        <div class="set-btn" data-spy="affix" data-offset-top="200">
+            <button class="btn green" type="button" onclick="$(this).submit();">保存</button>
+            <a class="btn" href="javascript:;" onclick="$css.closeDialog()">取消</a>
+        </div>
+    </form>
+
+</div>
+<style>
+    input.w-50, select {
+        width: 100px !important;
+    }
+
+</style>

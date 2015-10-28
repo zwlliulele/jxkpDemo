@@ -1,0 +1,241 @@
+<div class="container-fluid">
+    <div class="table-header">
+        <div class="table-btn">
+            <a class="btn" title="添加数据" href="#" ><i class="icon-plus"></i>新增</a>
+            <a class="btn" title="添加数据" href="#"><i class="icon-remove"></i>删除</a>
+        </div>
+    </div>
+    <form class="form-horizontal form-validate" id="form_column" name="form_column" method="post" action="updColumn.action" onsubmit="return validateCallback(this, updColumn)" novalidate="novalidate">
+        <table class="table table-bordered" id="cpfagl_gonggxzbTable" style="min-width: 600px">
+            <thead>
+            <tr>
+                <th><input type="checkbox"/></th>
+                <th>指标名称</th>
+                <th>指标说明</th>
+                <th>指标资料来源</th>
+                <th width="50px">分值</th>
+                <th>是否重点</th>
+                <th>显示状态</th>
+                <th>是否填报</th>
+                <th>是否赋分</th>
+                <th >监管部门</th>
+                <th >操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td><input type="text" value="规模以上总产值"/></td>
+                <td class="no-padding"><textarea name="" id=""  rows="3"></textarea></td>
+                <td><a href="#">【选择】</a></td>
+                <!--<td id="ddjs" class="ztree"></td>-->
+                <td><input type="text" value="3" class="w-50"/></td>
+                <td>
+                    <select >
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select >
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select >
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select >
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td><a href="#" class="btn" onclick="kpfagl_kpcl_zbsd_jgbm()">监管部门</a></td>
+                <td><a href="#" class="btn" >增加下级指标</a></td>
+
+
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td><input type="text" value="规模以上工业增加值"/></td>
+                <td class="no-padding"><textarea name="" id=""  rows="3"></textarea></td>
+                <td><a href="#">【选择】</a></td>
+                <!--<td id="ddjs" class="ztree"></td>-->
+                <td><input type="text" value="3" class="w-50"/></td>
+                <td>
+                    <select >
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select >
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select >
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select >
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td><a href="#" class="btn" onclick="kpfagl_kpcl_zbsd_jgbm()">监管部门</a></td>
+                <td><a href="#" class="btn" >增加下级指标</a></td>
+
+
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td><input type="text" value="财政收入"/></td>
+                <td class="no-padding"><textarea name="" id=""  rows="3"></textarea></td>
+                <td><a href="#">【选择】</a></td>
+                <!--<td id="ddjs" class="ztree"></td>-->
+                <td><input type="text" value="3" class="w-50"/></td>
+                <td>
+                    <select >
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select >
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select >
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td>
+                    <select >
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </td>
+                <td><a href="#" class="btn" onclick="kpfagl_kpcl_zbsd_jgbm()">监管部门</a></td>
+                <td><a href="#" class="btn" >增加下级指标</a></td>
+
+
+            </tr>
+
+
+            </tbody>
+        </table>
+
+        <div class="set-btn" data-spy="affix" data-offset-top="200">
+            <button class="btn green" type="button" onclick="$(this).submit();">保存</button>
+            <a class="btn" href="javascript:;" onclick="$css.closeDialog()">取消</a>
+        </div>
+
+
+    </form>
+
+</div>
+<style>
+    input.w-50, select{width: 60px!important;}
+
+</style>
+<script>
+    function kpfagl_kpcl_zbsd_jgbm(){
+        var a={
+            id:'kpfagl_kpcl_zbsd_jgbm',
+            title:'选择监管部门',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpfagl_kpcl_zbsd_jgbm.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+    //管理树形
+    var setting = {
+        view: {
+            selectedMulti: false//是否允许多选
+
+        },
+        callback: {
+            onClick:findNodes,//点击节点触发函数
+            beforeRemove: beforeRemove//删除前确认回调函数
+        }
+    };
+    var zNodes = [{
+        id:"0001",
+        name: "个性指标",
+        open: false,
+        children: [{
+            id:"0001",
+            name: "个性指标"
+        },{
+            id:"0001",
+            name: "个性指标",
+        },{
+            id:"0001",
+            name: "个性指标"
+        },{
+            id:"0001",
+            name: "个性指标"
+        },{
+            id:"0001",
+            name: "个性指标"
+        }
+        ]
+    }
+
+    ];
+    //删除前操作
+    function beforeRemove(treeId, treeNode){
+        var name = treeNode.name;
+        alert(name);
+        return false;//如果不设定返回false 默认会继续执行 onRemove 函数
+    }
+    function findNodes() {
+        var treeObj = $.fn.zTree.getZTreeObj("ddjs");
+        //获取全部节点数据
+        var nodes = treeObj.getSelectedNodes(true);//选取勾选的为true,未勾选为false
+        console.log(nodes);
+        for (var i = 0, l = nodes.length; i < l; i++) {
+            console.log(nodes[i]);
+            var nodeId = nodes[i].tId;
+            var level = nodes[i].level;
+            var nodeName = nodes[i].name;
+            var childrenNode = nodes[i].children;
+            var parentTId = nodes[i].parentTId;
+
+            console.log('节点层级为：' + level);
+            console.log('节点ID为：' + nodeId);
+            console.log('节点name为：' + nodeName);
+            console.log('父节点TId为：' + parentTId);
+            if(childrenNode){
+                console.log('子节点第一个name：' + childrenNode[0].name);
+            }
+        }
+    }
+    using('tree',function(){
+        $.fn.zTree.init($("#ddjs"), setting, zNodes);
+    });
+
+</script>

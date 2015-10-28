@@ -1,0 +1,57 @@
+<div class="portlet box dark-blue h-750">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-reorder"></i>
+            进度核查部门
+        </div>
+    </div>
+    <div class="portlet-body">
+        <a href="#" id="zfb" class="btn green big m-t-5" onclick="jdhs_jdhs()">政府办</a>
+    </div>
+</div>
+<script>
+    function jdhs_jdhs(){
+
+        var a={
+            id:'jdhs_jdhs',
+            title:'进度核查查询',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        }
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'jdhs_jdhs.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+
+            },
+            cache:false
+        });
+    }
+    function jdhc(){
+        var a={
+            id:'jdhc',
+            title:'进度核查',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        }
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'jdhc_kpjdtb.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+</script>

@@ -1,0 +1,180 @@
+<div class="container-fluid" id="kpfaglDiv">
+    <form class="form-horizontal form-validate" id="form_column" name="form_column" method="post" action="#" >
+        <div class="portlet box dark-blue h-750">
+            <div class="portlet-title">
+                <div class="caption"><i class=" icon-align-justify icon-white"></i>考评方案管理</div>
+
+            </div>
+            <div class="portlet-body" id="step1" style="display: block">
+                <form class="form-horizontal common_form">
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label"><span>*</span>考评年度</label>
+                            <div class="controls">
+                                <input type="text"  name="name" minlength="4" maxlength="20" class="input-xlarge required" value="2015">
+                                <!--<button class="btn btn-primary pull-left" type="button">Search</button>-->
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><span>*</span>考评周期</label>
+                            <div class="controls">
+                                <select>
+                                    <option value="1">年</option>
+                                    <option value="0">半年</option>
+                                    <option value="0">季度</option>
+                                </select>
+                                <!--<button class="btn btn-primary pull-left" type="button">Search</button>-->
+                            </div>
+                        </div>
+                        <div class="control-group ">
+                            <label class="control-label">填报起止日期</label>
+                            <div class="controls">
+                                <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()"> 到 <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                            </div>
+                        </div>
+                        <div class="control-group ">
+                            <label class="control-label">赋分起止日期</label>
+                            <div class="controls">
+                                <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()"> 到 <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                            </div>
+                        </div>
+                        <!--<div class="control-group">-->
+                        <!--<label class="control-label">状态</label>-->
+                        <!--<div class="controls">-->
+                        <!--<label class="radio">-->
+                        <!--<input type="radio" value="Option one" name="group" checked="checked">选项一</label>-->
+                        <!--<label class="radio">-->
+                        <!--<input type="radio" value="Option two" name="group">选项二</label>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <div class="control-group">
+                            <label class="control-label">考评对象分类</label>
+                            <div class="controls">
+                                <span>提示：请将分类写在下面的填写框内，用英文状态下的半角逗号(,)分隔</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <div class="textarea">
+                                <textarea rows="3" class="input-xxlarge">市直部门,经济技术开发区,综合保税区,滨河新区,县（市)</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+            <div class="common_btn">
+                <a class="btn save" type="submit">保存</a>
+
+            </div>
+
+    </form>
+
+
+
+
+
+
+
+
+</div>
+<style>
+    #kpfaglDiv  .control-label{width: 100px}
+    #kpfaglDiv  .controls{margin-left: 120px}
+    #kpfaglDiv  select{width: 284px}
+    .control-label span{color: #ff0000}
+</style>
+<script>
+
+    //为table添加排序插件
+        $('#cpfaglTable').tablesorter({
+            headers: {0:{sorter:false}}//第一行不排序
+        });
+
+    //添加新方案
+    function kpfagl_tjxfa(){
+        var a={
+            id:'kpfagl_tjxfa',
+            title:'添加方案',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        }
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpfagl_tjxfa.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+
+    function kpfagl_zblb(){
+        var a={
+            id:'kpfagl_zblb',
+            title:'指标类别',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        }
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpfagl_zblb.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+    function kpfagl_gongxzb(){
+        var a={
+            id:'kpfagl_gongxzb',
+            title:'共性指标',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpfagl_gongxzb.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+
+    function kpfagl_gexzb(){
+        var a={
+            id:'kpfagl_gexzb',
+            title:'个性指标',
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'kpfagl_gexzb.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+</script>

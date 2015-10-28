@@ -1,0 +1,133 @@
+<div class="container-fluid">
+    <div class="table-header">
+        <div class="table-btn">
+            <a class="btn" title="添加数据" href="#" ><i class="icon-plus"></i>新增周期</a>
+            <a class="btn" title="添加数据" href="#"><i class="icon-remove"></i>删除周期</a>
+        </div>
+    </div>
+    <form class="form-horizontal form-validate" id="form_column" name="form_column" method="post" action="updColumn.action" onsubmit="return validateCallback(this, updColumn)" novalidate="novalidate">
+        <table class="table table-bordered" id="cpfagl_gonggxzbTable" style="min-width: 600px">
+            <thead>
+            <tr>
+                <th><input type="checkbox"/></th>
+                <th >周期值</th>
+                <th>填报起始日期</th>
+                <th>填报结束日期</th>
+                <th>赋分起始日期</th>
+                <th>赋分结束日期</th>
+                <th>汇总起始日期</th>
+                <th>汇总结束日期</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td>
+                    <input type="text" value="2015年第一季度" >
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td>
+                    <input type="text" value="2015年第二季度" >
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td>
+                    <input type="text" value="2015年第三季度" >
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td>
+                    <input type="text" value="2015年第四季度" >
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+                <td>
+                    <input type="text" class=" required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+                </td>
+            </tr>
+          
+
+
+            </tbody>
+        </table>
+
+        <div class="set-btn" data-spy="affix" data-offset-top="200">
+            <button class="btn green" type="button" onclick="$(this).submit();">保存</button>
+            <a class="btn" href="javascript:;" onclick="$css.closeDialog()">取消</a>
+        </div>
+
+
+    </form>
+
+</div>

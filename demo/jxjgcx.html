@@ -1,0 +1,127 @@
+<ul id="myTab" class="nav nav-tabs">
+    <li class="active"><a href="#bat1" data-toggle="tab">党群部门，人民团体，检察院，法院</a></li>
+    <li class=""><a href="#bat2" data-toggle="tab">市直及垂管部门</a></li>
+    <li class=""><a href="#bat3" data-toggle="tab">政府直隶机构</a></li>
+    <li class=""><a href="#bat4" data-toggle="tab">乡镇</a></li>
+    <li class=""><a href="#bat5" data-toggle="tab">街道办事处</a></li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane active" id="bat1">
+        <form class="form-horizontal table-form no-margin min-w-1024" id="" action="table_basic.html" onsubmit="return navTabSearch(this)" >
+            <table class="table table-bordered dark-blue" id="jxjgcxTable_1">
+                <thead>
+                <tr>
+                    <th style="width: 5%" rowspan="2">序号</th>
+                    <th rowspan="2">部门</th>
+                    <th colspan="4">得分</th>
+                    <th  style="width: 80px" rowspan="2">难度系数</th>
+                    <th  style="width: 50px" rowspan="2">季度1</th>
+                    <th  style="width: 50px" rowspan="2">季度2</th>
+                    <th  style="width: 50px" rowspan="2">季度3</th>
+                    <th   style="width: 50px" rowspan="2">季度4</th>
+                    <th  style="width: 50px" rowspan="2">汇总</th>
+                    <th rowspan="2">详情</th>
+                </tr>
+                <tr>
+                    <th width="80px">共性指标</th>
+                    <th width="80px">业务指标</th>
+                    <th width="100px">绩效评议评价</th>
+                    <th width="80px">加减分</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td class="no-padding"><a href="#" class="" onclick="jxjgcx_kpjgcx(this)"><i class="icon_links"></i>老干部局1</a></td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>110</td>
+                    <td>
+                        <p><a href="#"><i class="icon_windy"></i>导出监管部门以及考评办的打分记录</a></p>
+                        <p><a href="#"><i class="icon_windy"></i>导出领导打分记录</a></p>
+                        <p><a href="#"><i class="icon_windy"></i>导出填报内容</a></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="no-padding"><a href="#" class="" onclick="jxjgcx_kpjgcx(this)"><i class="icon_links"></i>老干部局2</a></td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>210</td>
+                    <td>
+                        <p><a href="#"><i class="icon_windy"></i>导出监管部门以及考评办的打分记录</a></p>
+                        <p><a href="#"><i class="icon_windy"></i>导出领导打分记录</a></p>
+                        <p><a href="#"><i class="icon_windy"></i>导出填报内容</a></p>
+                    </td>
+                </tr>
+
+
+
+
+                </tbody>
+            </table>
+            <div class="pagination">
+                <ul>
+                    <li><a class="page-next" href="javascript:;">下一页</a></li>　
+                    <li><a class="page-last" href="javascript:;">尾页</a></li>　
+                    <li>第<input class="page-jump" size="3" maxlength="6" onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" value="1">页 <a href="javascript:;" class="page-go">Go</a> 共8页 每页<input class="page-num" size="3" maxlength="6" onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" name="page.pageSize" value="10">条 记录总数：<b>76</b>条</li>
+                </ul>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="tab-pane" id="bat2" style="vertical-align: middle">市直及垂管部门</div>
+    <div class="tab-pane" id="bat3">政府直隶机构</div>
+    <div class="tab-pane" id="bat4">乡镇</div>
+    <div class="tab-pane" id="bat5">街道办事处</div>
+
+
+
+</div>
+<script>
+    $('#jxjgcxTable_1').tablesorter({
+//        theme:'default',
+        headers: {
+            2:{sorter:false},
+            9:{sorter:false}
+        }//第一行不排序
+    });
+    function jxjgcx_kpjgcx(obj){
+        var title=$(obj).html();
+        var a={
+            id:'_blank',
+            title:'查询赋分'+title,
+            lock:true,
+            resize: false,
+            max:false,
+            min:false,
+            padding: 0
+        };
+        var api = $.dialog(a);
+        /* jQuery ajax */
+        $.ajax({
+            url:'jxjgcx_kpjgcx.html',
+            success:function(data){
+                api.content(data);
+                $(api.DOM.content[0]).initUI();
+            },
+            cache:false
+        });
+    }
+</script>

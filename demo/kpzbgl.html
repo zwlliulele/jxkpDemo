@@ -1,0 +1,268 @@
+    <form class="form-horizontal table-form no-margin" id="add_user_form" action="table_basic.html" onsubmit="return navTabSearch(this)">
+        <table class="table table-bordered dark-blue" id="kpzbglTable">
+            <thead>
+            <tr>
+                <th>指标名称</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr rel="1">
+                <td id="zbglTree" class="ztree"></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </form>
+
+    <script type="text/javascript">
+        function kpfagl_kpcl(){
+            var a={
+                id:'kpfagl_kpcl',
+                title:'考评策略',
+                lock:true,
+                resize: false,
+                max:false,
+                min:false,
+                opacity:"0.5"
+
+            };
+            var api = $.dialog(a);
+            /* jQuery ajax */
+            $.ajax({
+                url:'kpfagl_kpcl.html',
+                success:function(data){
+                    api.content(data);
+                    $(api.DOM.content[0]).initUI();
+                },
+                cache:false
+            });
+        }
+        function kpfagl_fzkpcl(){
+            var a={
+                id:'kpfagl_fzkpcl',
+                title:'分组考评策略',
+                lock:true,
+                resize: false,
+                max:false,
+                min:false,
+                opacity:"0.5"
+
+            };
+            var api = $.dialog(a);
+            /* jQuery ajax */
+            $.ajax({
+                url:'kpfagl_fzkpcl.html',
+                success:function(data){
+                    api.content(data);
+                    $(api.DOM.content[0]).initUI();
+                },
+                cache:false
+            });
+        }
+        function kpfagl_kpcl_zbsd(){
+            var a={
+                id:'kpfagl_kpcl_zbsd',
+                title:'单位考评策略',
+                lock:true,
+                resize: false,
+                max:false,
+                min:false,
+                opacity:"0.5"
+
+            };
+            var api = $.dialog(a);
+            /* jQuery ajax */
+            $.ajax({
+                url:'kpfagl_kpcl_zbsd.html',
+                success:function(data){
+                    api.content(data);
+                    $(api.DOM.content[0]).initUI();
+                },
+                cache:false
+            });
+        }
+
+        function kpfagl_pkdxfl(){
+            //event.stopPropagation();    // 阻止冒泡事件
+            var a={
+                id:'kpfagl_pkdxfl',
+                title:'考评对象分类',
+                lock:true,
+                resize: false,
+                max:false,
+                min:false
+
+            };
+            var api = $.dialog(a);
+            /* jQuery ajax */
+            $.ajax({
+                url:'kpfagl_pkdxfl.html',
+                success:function(data){
+                    api.content(data);
+                    $(api.DOM.content[0]).initUI();
+                },
+                cache:false
+            });
+        }
+        function kpfagl_pkdxfz(){
+            var a={
+                id:'kpfagl_pkdxfz',
+                title:'考评对象分组',
+                lock:true,
+                resize: false,
+                max:false,
+                min:false
+
+            };
+            var api = $.dialog(a);
+            /* jQuery ajax */
+            $.ajax({
+                url:'kpfagl_pkdxfz.html',
+                success:function(data){
+                    api.content(data);
+                    $(api.DOM.content[0]).initUI();
+                },
+                cache:false
+            });
+        }
+
+        function kpfagl_kpcl_ywzbsd() {
+            var a = {
+                id: 'kpfagl_kpcl_ywzbsd',
+                title: '业务指标设定',
+                lock: true,
+                resize: false,
+                max: false,
+                min: false,
+                padding: 0
+            };
+            var api = $.dialog(a);
+            /* jQuery ajax */
+            $.ajax({
+                url: 'kpfagl_kpcl_ywzbsd.html',
+                success: function (data) {
+                    api.content(data);
+                    $(api.DOM.content[0]).initUI();
+                },
+                cache: false
+            });
+        }
+        function kpfagl_gongxzbsdl(){
+            var a={
+                id:'kpfagl_gongxzb',
+                title:'共性指标管理',
+                lock:true,
+                resize: false,
+                max:false,
+                min:false
+
+            };
+            var api = $.dialog(a);
+            /* jQuery ajax */
+            $.ajax({
+                url:'kpfagl_gongxzb.html',
+                success:function(data){
+                    api.content(data);
+                    $(api.DOM.content[0]).initUI();
+                },
+                cache:false
+            });
+        }
+        //考评指标管理树形
+        var setting = {
+            view: {
+                selectedMulti: false//是否允许多选
+
+            },
+            callback: {
+                onClick:findNodes,//点击节点触发函数
+                beforeRemove: beforeRemove//删除前确认回调函数
+            }
+        };
+        //删除前操作
+        function beforeRemove(treeId, treeNode){
+            var name = treeNode.name;
+            alert(name);
+            return false;//如果不设定返回false 默认会继续执行 onRemove 函数
+        }
+        function findNodes() {
+            var treeObj = $.fn.zTree.getZTreeObj("zbglTree");
+            //获取全部节点数据
+            var nodes = treeObj.getSelectedNodes(true);//选取勾选的为true,未勾选为false
+            console.log(nodes);
+            for (var i = 0, l = nodes.length; i < l; i++) {
+                console.log(nodes[i]);
+                var zdyId = nodes[i].id;
+                var level = nodes[i].level;
+                var nodeName = nodes[i].name;
+                var childrenNode = nodes[i].children;
+                var parentTId = nodes[i].getParentNode();//获取父级节点
+                console.log(parentTId);
+
+
+            }
+        }
+        var zNodes = [{
+            id:"1",
+            name: "2015年度绩效考评方案",
+            open: false,
+            children: [{
+                id:"01",
+                name: "市直部门",
+                menuList:'<a href="#"  class="ztreeMenu" onclick="kpfagl_kpcl(this)">考评策略</a>',
+                children: [{
+                    id:"001",
+                    name: "党群工作组",
+                    menuList:'<a href="#"  class="ztreeMenu" onclick="kpfagl_fzkpcl(this)">分组考评策略</a>',
+                    children: [{
+                        id:"0001",
+                        name: "政府办",
+                        menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+                    }, {
+                        id:"0001",
+                        name: "政府办",
+                        menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+                    }, {
+                        id:"0001",
+                        name: "政府办",
+                        menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+                    }, {
+                        id:"0001",
+                        name: "政府办",
+                        menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+                    }]
+                }]
+            },{
+                id:"01",
+                name: "市直部门",
+                menuList:'<a href="#"  class="ztreeMenu" onclick="kpfagl_kpcl(this)">考评策略</a>',
+                children: [{
+                    id:"001",
+                    name: "党群工作组",
+                    menuList:'<a href="#"  class="ztreeMenu" onclick="kpfagl_fzkpcl(this)">分组考评策略</a>',
+                    children: [{
+                        id:"0001",
+                        name: "政府办",
+                        menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+                    }, {
+                        id:"0001",
+                        name: "政府办",
+                        menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+                    }, {
+                        id:"0001",
+                        name: "政府办",
+                        menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+                    }, {
+                        id:"0001",
+                        name: "政府办",
+                        menuList:'<a class="ztreeMenu" data-id="0001" onclick="kpfagl_kpcl_zbsd(this)">单位考评策略</a>'
+                    }]
+                }]
+                }]
+        }
+
+        ];
+        using('tree',function(){
+            $.fn.zTree.init($("#zbglTree"), setting, zNodes);
+        });
+    </script>

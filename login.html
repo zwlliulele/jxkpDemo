@@ -1,0 +1,136 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title></title>
+    <script type="text/javascript">
+        function changeCSS(){
+            var links = [];
+            var k ;
+            //links.push('<link rel="stylesheet" type="text/css" href="custom/metro/style.css" id="login_skin"/>');
+            links.push('<link rel="stylesheet" type="text/css" href="custom/chinastyle/style.css" id="login_skin"/>');
+            links.push('<link rel="stylesheet" type="text/css" href="custom/fresh/style.css" id="login_skin"/>');
+            links.push('<link rel="stylesheet" type="text/css" href="custom/crystal/style.css" id="login_skin"/>');
+            links.push('<link rel="stylesheet" type="text/css" href="custom/skyblue/style.css" id="login_skin"/>');
+            links.push('<link rel="stylesheet" type="text/css" href="custom/green/style.css" id="login_skin"/>');
+            if(document.cookie.indexOf('login_skinId') == -1){
+                k = 0;
+                document.cookie = "login_skinId="+k+";";
+            }else{
+                var str= document.cookie.substring(document.cookie.indexOf('login_skinId=')+13);
+                if(str.indexOf(';') != -1){
+                    k =  str.substring(0,str.indexOf(';'));
+                }else{
+                    k = str.substring(0);
+                }
+                k++;
+                document.cookie = "login_skinId="+k+";";
+            }
+            if(k >= links.length){
+                k = 0;
+                document.cookie = "login_skinId="+k+";";
+            }
+            //var rand = Math.floor(Math.random()*(links.length));
+            //var rand = 0;
+            //document.getElementsByTagName('head')[0].innerHTML = links[rand];
+            //alert(document.getElementsByTagName('head')[0].innerHTML);
+            if(navigator.userAgent.match(/MSIE/)){
+                var cssHref = links[k].substring(links[k].indexOf('href'));
+                var cssName = cssHref.substring(cssHref.indexOf('/')+1,cssHref.lastIndexOf('style')-1);
+                var css = document.createElement('<link>');
+                css.rel = 'stylesheet';
+                css.type = 'text/css';
+                css.id = 'login_skin';
+                css.href = 'custom/'+cssName+'/style.css';
+                document.getElementsByTagName('head')[0].appendChild(css);
+            }else{
+                document.getElementsByTagName('head')[0].innerHTML = links[k];
+            }
+
+        }
+        changeCSS();
+    </script>
+</head>
+
+<!--display:none;  onload="loginReady();"  -->
+<body  style="height:100%;overflow:hidden;" onload="loginReady();">
+<script>
+    if(!! navigator.userAgent.match(/MSIE 7/)) {
+        document.location.href = "msgie7.jsp";
+    }
+</script>
+<div class="main" id="main">
+    <div class="mod_l" id="mod_l">
+        <i class="user_icon"></i>
+    </div>
+    <div class="mod_r" id="mod_r">
+        <form id="login-form" action="login.action" method="post" onsubmit="return validateCallback(this,loginCallback)">
+            <input type="hidden" name="sUser.password" id="pwd"/>
+            <div class="title">绩效考评系统</div>
+            <div class="wel_txt">请登录</div>
+            <p class="account">
+                <span class="type"></span>
+                <input type="text" class="required csspwd" title="用户名不能为空，且不包含空格！" name="sUser.loginName" id="name"/>
+                <i class=""></i>
+            </p>
+            <p class="password">
+                <span class="type"></span>
+                <input type="password" class="required csspwd" title="密码不能为空，且不包含空格！" name="password" id="password" value=""/>
+                <i class=""></i>
+            </p>
+            <p class="auth">
+                <span class="type"></span>
+                <input type="text" class="required" maxlength="4" title="请输入验证码！" name="checkCode" id="code" value=""/>
+						<span class="code"><img src="rand.jpg" alt="验证码"
+                                                id="checkCodeImg" width="55px" style="border: 1px solid #000;"/></span>
+                <i class="refresh" onclick="newImg();"></i>
+            </p>
+            <div class="btn"><a href="#" class="submit" onclick="submitForm();">登 录</a>
+                <a href="demo/index.html" class="reset">进入主页</a></div>
+        </form>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<script type="text/javascript" src="cssui/plugins/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="cssui/plugins/jquery.validate.min.js"></script>
+<script type="text/javascript" src="cssui/plugins/encrypt/md5.js"></script>
+<script type="text/javascript" src="custom/metro/login.js"></script>
+<script type="text/javascript">
+    var userNameCount = 0;
+    function getUserName() {
+        //if(!"id" in document.createElement('embed')){return;}
+        if(!!navigator.userAgent.match(/Firefox/)){
+            var plugin = document.getElementById("pluginId");
+            if(!plugin){
+                $('body').append('<embed width="0" height="0" type="application/browser-username-extension"  id="pluginId">');
+                plugin = document.getElementById("pluginId");
+            }
+            if('getUserName' in plugin){
+                //获取插件对象
+                var userInput=document.getElementById("name");
+                //调用插件方法获取用户名
+                var userName=plugin.getUserName();
+                if(userName && userName!=""){
+                    $('#name').val(userName)
+                        //.attr('disabled',true)
+                            .css('cursor','not-allowed');
+                }
+                //alert(plugin.exec());
+            }else{
+                userNameCount++;
+                if(userNameCount<3){
+                    setTimeout(getUserName,300);
+                }
+            }
+        }
+    }
+    function submitForm(){
+        $("#login-form").attr("action","login.action?tm="+new Date().getTime());
+        $("#login-form").submit();
+    }
+</script>
+</body>
+</html>
